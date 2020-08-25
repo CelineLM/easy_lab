@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users, only: :show
   resources :checkups do
-    resources :user_analyses [:update]
+    resources :user_analyses, only: :update
   end
-  resources :user_analyses [:index, :destroy]
+  resources :user_analyses, only: [:index, :destroy]
 end

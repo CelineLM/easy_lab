@@ -33,6 +33,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
 
+gem 'ocr_space'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

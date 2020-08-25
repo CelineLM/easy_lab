@@ -1,6 +1,6 @@
 class UserAnalysesController < ApplicationController
   def index
-    @user_analyses = User_analysis.all
+    @user_analyses = UserAnalysis.all
   end
 
   def update

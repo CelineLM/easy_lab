@@ -34,7 +34,7 @@ class CheckupsController < ApplicationController
   end
 
   def api_call
-    path = Rails.application.routes.url_helpers.rails_blob_path(@checkup.file, only_path: true)
+    path = url_for(@checkup.file)
     resource = OcrSpace::Resource.new(apikey: ENV['OCR_API_KEY'])
     result = resource.convert file: path
     puts result

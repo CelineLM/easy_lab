@@ -56,11 +56,11 @@ Checkup.destroy_all
 
 puts "Creating checkups..."
 
-checkup_1 = Checkup.create!(realized_on: Date.new(2019/8/10), user: user1, laboratory_name: "Super labo, Bordeaux")
+checkup_1 = Checkup.create!(realized_on: Date.new(2019,8,10), user: user1, laboratory_name: "Super labo, Bordeaux")
 
-checkup_2 = Checkup.create!(realized_on: Date.new(2020/1/20), user: user1, laboratory_name: "Super labo, Bordeaux")
+checkup_2 = Checkup.create!(realized_on: Date.new(2020,1,20), user: user1, laboratory_name: "Super labo, Bordeaux")
 
-checkup_2 = Checkup.create!(realized_on: Date.new(2020/6/13), user: user1, laboratory_name: "Super labo, Bordeaux")
+checkup_2 = Checkup.create!(realized_on: Date.new(2020,6,13), user: user1, laboratory_name: "Super labo, Bordeaux")
 
 puts 'Finished creating checkups'
 

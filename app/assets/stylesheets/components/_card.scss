@@ -42,5 +42,40 @@
       &:hover {
         color: $dark-grey-blue;
       }
+   }
+}
+
+
+
+// Checkup show
+
+.category-card {
+  width: 80%;
+  margin: 50px auto;
+  border-radius: 20px;
+}
+
+.category-card-title {
+  background-color: $grey-blue;
+  color: white;
+  border-radius: 20px 20px 0 0;
+  h2 {
+    text-align: center;
+    padding: 10px;
+    margin: 0px;
   }
+}
+
+.category-card-content {
+  background-color: white;
+  color: $grey-blue;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.category-card-column {
+  width: 25%;
+  text-align: center;
 }

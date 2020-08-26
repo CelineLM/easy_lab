@@ -33,6 +33,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'devise'
+gem 'daru-view', git: 'https://github.com/SciRuby/daru-view'
 
 group :development, :test do
   gem 'pry-byebug'

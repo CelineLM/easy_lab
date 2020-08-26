@@ -1,0 +1,23 @@
+.card-analyses {
+  width: 500px;
+  margin: 20px auto;
+  border-radius: 5px;
+  p {
+    margin: 0;
+  }
+}
+
+.card-analyses-top {
+  background-color: $grey-blue;
+  color: white;
+}
+
+.card-analyses-middle {
+  background-color: white;
+  color: $grey-blue;
+}
+
+.card-analyses-bottom {
+  background-color: white;
+  color: $grey-blue;
+}

@@ -8,5 +8,21 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  flex: 1 0 auto;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+  text-decoration: none;
 }

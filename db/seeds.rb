@@ -7,28 +7,74 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+puts "Cleaning user"
+User.destroy_all
+
+puts "creating users ..."
+
+user1 = User.create!(
+  last_name: "Michel",
+  first_name: "Michel",
+  email: "michel@gmail.com",
+  password: "Michel"
+)
+file_user1 = URI.open('https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80')
+user1.photo.attach(io: file_user1, filename: 'michel.jpg', content_type: 'image/jpg')
+
+user2 = User.create!(
+  last_name: "Julie",
+  first_name: "Julie",
+  email: "julie@gmail.com",
+  password: "Juliee"
+)
+file_user2 = URI.open('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80')
+user2.photo.attach(io: file_user2, filename: 'julie.jpg', content_type: 'image/jpg')
+
+user3 = User.create!(
+  last_name: "Jessica",
+  first_name: "Jessica",
+  email: "jessica@gmail.com",
+  password: "Jessica"
+)
+file_user3 = URI.open('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80')
+user3.photo.attach(io: file_user3, filename: 'jessica.jpg', content_type: 'image/jpg')
+
+puts "users created"
+
+
+puts "Cleaning users analyses..."
+UserAnalysis.destroy_all
+
 puts "Cleaning analyses..."
 Analysis.destroy_all
 
 puts "Cleaning categories..."
 Category.destroy_all
 
+puts "Cleaning checkups..."
+Checkup.destroy_all
+
+puts "Creating checkups..."
+
+checkup_1 = Checkup.create!(realized_on: Date.new(2019/8/10), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+checkup_2 = Checkup.create!(realized_on: Date.new(2020/1/20), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+checkup_2 = Checkup.create!(realized_on: Date.new(2020/6/13), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+puts 'Finished creating checkups'
+
 puts "Creating categories..."
 
-immuno_hematologie = Category.new(name: "Immuno-Hématologie")
-immuno_hematologie.save!
+immuno_hematologie = Category.create!(name: "Immuno-Hématologie")
 
-biochimie_des_urines = Category.new(name: "Biochimie des urines")
-biochimie_des_urines.save!
+biochimie_des_urines = Category.create!(name: "Biochimie des urines")
 
-hematologie = Category.new(name: "Hématologie")
-hematologie.save!
+hematologie = Category.create!(name: "Hématologie")
 
-biochimie_du_sang = Category.new(name: "Biochimie du sang")
-biochimie_du_sang.save!
+biochimie_du_sang = Category.create!(name: "Biochimie du sang")
 
-serologie_infectieuse = Category.new(name: "Sérologie infectieuse")
-serologie_infectieuse.save!
+serologie_infectieuse = Category.create!(name: "Sérologie infectieuse")
 
 puts 'Finished creating categories'
 
@@ -81,7 +127,30 @@ vih.save!
 file_vih = URI.open('https://www.actions-traitements.org/wp-content/uploads/2014/06/Capture-d%E2%80%99%C3%A9cran-2014-07-29-%C3%A0-16.21.02.png')
 vih.photo.attach(io: file_vih, filename: 'vih.png', content_type: 'image/png')
 
+cholesterol = Analysis.create!(name: "Cholestérol", description: "Le cholestérol est un lipide (corps gras) de la famille des stérols. Son rôle est essentiel dans l’organisme puisqu’il sert à la fabrication des hormones produites  par les glandes génitales et surrénales. Il est en partie fabriqué par le foie, le reste provient de notre alimentation. Il existe deux types de cholestérol : 
+Le LDL est connu comme le 'mauvais cholestérol' car il correspond à l’excès de cholestérol qui se dépose sur les parois des vaisseaux sanguins ;
+Le  HDL  connu comme le 'bon cholestérol' élimine le cholestérol des artères et l’entraîne vers le foie pour être détruit.
+", min_value: 1.60, max_value: 2.20, category: biochimie_du_sang)
+file_cholesterol = URI.open('https://cdn.lostempireherbs.com/wp-content/uploads/2015/04/Cholesterol_plaque1_shutterstock_1083808715-600x322.png')
+cholesterol.photo.attach(io: file_cholesterol, filename: 'cholesterol.png', content_type: 'image/png')
+
 puts 'Finished creating analyses'
+
+puts "Creating user_analyses..."
+
+user1_checkup1_analysis1 = UserAnalysis.new(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
+user1_checkup1_analysis1.save!
+
+user1_checkup1_analysis2 = UserAnalysis.new(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
+user1_checkup1_analysis2.save!
+
+user1_checkup1_analysis3 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.65)
+
+user1_checkup2_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.05)
+
+user1_checkup3_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.0)
+
+puts 'Finished creating user_analyses'
 
 puts 'Seeds OK!'
 

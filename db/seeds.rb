@@ -7,6 +7,41 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+puts "Cleaning user"
+User.destroy_all
+
+puts "creating users ..."
+
+user1 = User.create!(
+  last_name: "Michel",
+  first_name: "Michel",
+  email: "michel@gmail.com",
+  password: "Michel"
+)
+file_user1 = URI.open('https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80')
+user1.photo.attach(io: file_user1, filename: 'michel.jpg', content_type: 'image/jpg')
+
+user2 = User.create!(
+  last_name: "Julie",
+  first_name: "Julie",
+  email: "julie@gmail.com",
+  password: "Juliee"
+)
+file_user2 = URI.open('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80')
+user2.photo.attach(io: file_user2, filename: 'julie.jpg', content_type: 'image/jpg')
+
+user3 = User.create!(
+  last_name: "Jessica",
+  first_name: "Jessica",
+  email: "jessica@gmail.com",
+  password: "Jessica"
+)
+file_user3 = URI.open('https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80')
+user3.photo.attach(io: file_user3, filename: 'jessica.jpg', content_type: 'image/jpg')
+
+puts "users created"
+
+
 puts "Cleaning users analyses..."
 UserAnalysis.destroy_all
 
@@ -18,17 +53,6 @@ Category.destroy_all
 
 puts "Cleaning checkups..."
 Checkup.destroy_all
-
-puts "Cleaning users..."
-User.destroy_all
-
-
-puts "Creating users..."
-
-user_1 = User.new(first_name: "Bob", last_name: "Dupont", email: "bob@gmail.com", password: "BobDupont")
-user_1.save!
-
-puts 'Finished creating users'
 
 puts "Creating checkups..."
 

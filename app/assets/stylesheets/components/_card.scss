@@ -1,7 +1,6 @@
 .card-analyses {
-  width: 500px;
+  width: 400px;
   margin: 20px auto;
-  border-radius: 5px;
   p {
     margin: 0;
   }
@@ -10,14 +9,38 @@
 .card-analyses-top {
   background-color: $grey-blue;
   color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 20px;
+  i {
+    margin-right: 10px;
+  }
 }
 
 .card-analyses-middle {
   background-color: white;
   color: $grey-blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  i {
+    margin-right: 10px;
+  }
 }
 
 .card-analyses-bottom {
   background-color: white;
-  color: $grey-blue;
+  border-radius: 0 0 10px 10px;
+  padding: 15px 0;
+  text-align: center;
+  border-top: 2px solid rgb(224, 218, 218);
+  a {
+      color: $grey-blue;
+      font-weight: bold;
+      &:hover {
+        color: $dark-grey-blue;
+      }
+  }
 }

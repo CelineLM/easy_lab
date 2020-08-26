@@ -1,1 +1,13 @@
 
+<% @grouped_user_analyses.each do |category, user_analyses| %>
+  <h1><%= category.name %></h1>
+
+  <% user_analyses.each do |user_analysis| %>
+    <h6><%= user_analysis.name %></h6>
+    <p><%= user_analysis.value %></p>
+
+    <p>min-val : <%= user_analysis.analysis.min_value %></p>
+    <p>max-val : <%= user_analysis.analysis.max_value %></p>
+  <% end %>
+
+<% end %>

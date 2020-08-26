@@ -9,6 +9,7 @@ class CheckupsController < ApplicationController
   end
 
   def show
+    @checkup = Checkup.find(params[:id])
   end
 
   def edit

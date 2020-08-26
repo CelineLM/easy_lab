@@ -1,5 +1,6 @@
 class CheckupsController < ApplicationController
   def index
+    @checkups = Checkup.where(user: current_user)
   end
 
   def new

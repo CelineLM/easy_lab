@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <h1 class="text-center">Historique de vos analyses</h1>
+
+  <div class="button-wrapper">
+  <%= link_to "AJOUTER DES ANALYSES", new_checkup_path, class: "button-blue" %>
+  </div>
+
+  <div class="cards">
+    <% @checkups.each do |checkup| %>
+      <div class="card-analyses">
+        <div class="card-analyses-top">
+          <i class="far fa-calendar"></i>
+          <p>Réalisées le <%= checkup.realized_on.strftime("%d/%m/%G") %></p>
+        </div>
+
+        <div class="card-analyses-middle">
+          <i class="fas fa-map-marker-alt"></i>
+          <%= checkup.laboratory_name %></p>
+        </div>
+
+        <div class="card-analyses-bottom">
+          <%= link_to "Voir le détail", checkup_path(checkup) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

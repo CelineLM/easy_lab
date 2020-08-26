@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
   <div class="small-logo">
-    <%= image_tag('logo.jpg')%>
+    <%= image_tag('logofg.jpg')%>
   </div>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,15 +29,16 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Editer mon profil", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Dashboard", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Tableau de bord", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Mon historique", checkups_path, class: "dropdown-item" %>
+            <%= link_to "Evolution", user_analyses_path, class: "dropdown-item" %>
             <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       </ul>
     <% else %>
-      <%= link_to "Inscription", new_user_registration_path, class: "dropdown-item" %>
-      <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item" %>
+      <%= link_to "Inscription", new_user_registration_path, class: "dropdown-item2" %>
+      <%= link_to "Se connecter", new_user_session_path, class: "dropdown-item2" %>
     <% end %>
   </div>
 </div>

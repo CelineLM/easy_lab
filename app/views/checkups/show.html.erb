@@ -1,13 +1,18 @@
-
-<% @grouped_user_analyses.each do |category, user_analyses| %>
-  <h1><%= category.name %></h1>
-
-  <% user_analyses.each do |user_analysis| %>
-    <h6><%= user_analysis.name %></h6>
-    <p><%= user_analysis.value %></p>
-
-    <p>min-val : <%= user_analysis.analysis.min_value %></p>
-    <p>max-val : <%= user_analysis.analysis.max_value %></p>
+<div class="wrapper" >
+  <h1> Mes analyses du <%= @checkup.realized_on %> en détails </h1>
+  <% @grouped_user_analyses.each do |category, user_analyses| %>
+    <div class="category-card">
+      <div class="category-card-title" >
+        <h2><%= category.name %></h2>
+      </div>
+      <% user_analyses.each do |user_analysis| %>
+      <div class="category-card-content">
+          <div class="category-card-column" ><%= user_analysis.name %></div>
+          <div class="category-card-column" ><%= user_analysis.value %> <%= user_analysis.analysis.unit %> </div>
+          <div class="category-card-column" ><%= user_analysis.analysis.min_value %></div>
+          <div class="category-card-column" ><%= user_analysis.analysis.max_value %></div>
+      </div>
+      <% end %>
+    </div>
   <% end %>
-
-<% end %>
+</div>

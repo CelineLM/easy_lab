@@ -1,0 +1,14 @@
+.btn-flat {
+  color: white;
+  padding: 24px 48px;
+  border-radius: 15px;
+  background: $orange;
+  font-size: 32px;
+  font-style: bold;
+}
+
+.btn-flat:hover {
+  background: $orange;
+  color: white;
+  opacity: 0.9;
+}

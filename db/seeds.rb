@@ -7,11 +7,35 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+puts "Cleaning users analyses..."
+UserAnalysis.destroy_all
+
 puts "Cleaning analyses..."
 Analysis.destroy_all
 
 puts "Cleaning categories..."
 Category.destroy_all
+
+puts "Cleaning checkups..."
+Checkup.destroy_all
+
+puts "Cleaning users..."
+User.destroy_all
+
+
+puts "Creating users..."
+
+user_1 = User.new(first_name: "Bob", last_name: "Dupont", email: "bob@gmail.com", password: "BobDupont")
+user_1.save!
+
+puts 'Finished creating users'
+
+puts "Creating checkups..."
+
+checkup_1 = Checkup.new(realized_on: "15/08/2020", user: user_1)
+checkup_1.save!
+
+puts 'Finished creating checkups'
 
 puts "Creating categories..."
 
@@ -82,6 +106,16 @@ file_vih = URI.open('https://www.actions-traitements.org/wp-content/uploads/2014
 vih.photo.attach(io: file_vih, filename: 'vih.png', content_type: 'image/png')
 
 puts 'Finished creating analyses'
+
+puts "Creating user_analyses..."
+
+user1_checkup1_analysis1 = UserAnalysis.new(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
+user1_checkup1_analysis1.save!
+
+user1_checkup1_analysis2 = UserAnalysis.new(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
+user1_checkup1_analysis2.save!
+
+puts 'Finished creating user_analyses'
 
 puts 'Seeds OK!'
 

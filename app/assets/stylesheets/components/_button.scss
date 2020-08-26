@@ -26,6 +26,19 @@
   }
 }
 
+.button-blue-small {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background: $blue;
+  font-size: 16px;
+  font-weight: bold;
+  &:hover {
+    background-color: $dark-blue;
+    color: white;
+  }
+}
+
 .button-wrapper {
   text-align: center;
   margin: 50px auto;

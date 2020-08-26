@@ -1,25 +1,32 @@
-<h2>Sign up</h2>
+<div class="wrapper d-flex flex-column align-items-center mt-5 ">
+<div class= "col-md-6 col-sm-12" >
+  <h2 class="text-center">S'inscrire</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.input :last_name, required: true, label: "Nom"%>
+    <%= f.input :first_name, required: true, label: "Prénom"%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :password,
-                required: true,
+                required: true, label: "Mot de passe",
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+              input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation, label: "Confirmation du mot de passe",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo, as: :file, label: "Ajoutez une photo" %> 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions button-wrapper">
+    <%= f.button :submit, "S'inscrire", class: "button-blue-small" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>

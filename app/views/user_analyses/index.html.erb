@@ -1,1 +1,7 @@
+
 <h1>evolution</h1>
+
+<% @user_analyses.each do |user_analysis| %>
+    <%= user_analysis.name %>
+    <%= user_analysis.value %> <%= user_analysis.analysis.unit %>
+<% end %>

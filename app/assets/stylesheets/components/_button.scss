@@ -1,13 +1,14 @@
-.btn-flat {
+.button-big {
   color: white;
-  padding: 24px 48px;
+  padding: 32px 48px;
   border-radius: 15px;
-  background: $blue;
+  background: $blue-green;
   font-size: 32px;
-  font-style: bold;
+  font-weight: bold;
+  font-family: 'Roboto';
 }
 
-.btn-flat:hover {
+.button-big:hover {
   background: $orange;
   color: white;
   opacity: 0.9;
@@ -17,9 +18,10 @@
   color: white;
   padding: 15px 20px;
   border-radius: 5px;
-  background: $blue;
+  background: $blue-green;
   font-size: 16px;
   font-weight: bold;
+  font-family: 'Roboto';
   &:hover {
     background-color: $dark-blue;
     color: white;
@@ -30,9 +32,10 @@
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
-  background: $blue;
+  background: $blue-green;
   font-size: 16px;
   font-weight: bold;
+  font-family: 'Roboto';
   &:hover {
     background-color: $dark-blue;
     color: white;

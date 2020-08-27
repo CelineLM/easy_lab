@@ -23,15 +23,13 @@
 
 .flex-item {
   margin: 0 15px;
-}
-
-a {
-  color: white;
-}
-
-a:hover {
-  color: black;
-  text-decoration: none;
+  a {
+    color: white;
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
+  }
 }
 
 .dropdown-item2 {

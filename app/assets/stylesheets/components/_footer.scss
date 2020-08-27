@@ -2,29 +2,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
   padding: 0px 50px;
-  background-color: black;
+  height: 100px;
 }
 .footer-links {
   display: flex;
   align-items: center;
-  color: white;
+  color: $dark-grey-blue;
 }
 .footer-links a {
-  color: white;
+  color: $blue-green;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
 }
 .footer-links a:hover {
   opacity: 1;
-  color: white;
+  color: #2f699b;
 }
 .footer .fa-heart {
-  color: white;
+  color: #2f699b;
 }
 
 .footer-copyright {
-  color: white;
+  color: $dark-grey-blue;
 }

@@ -1,12 +1,15 @@
+<div class="wrapper">
+  <h1 class='text-center'>Évolution</h1>
 
-<h1>evolution</h1>
-
-<div id="all-analyses">
-  <% @analyses_grouped_by_name.each do |name, user_analyses| %>
-    <% values = user_analyses.map(&:value).join(', ') %>
-    <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
-    <% y_axis_title = user_analyses.first.analysis.unit %>
-    <h2 class="text-center"><%=name %></h2>
-    <div id="container" data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
-  <% end %>
+  <div id="all-analyses">
+    <% @analyses_grouped_by_name.each do |name, user_analyses| %>
+      <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
+      <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
+      <% values = user_analyses.map(&:value).join(', ') %>
+      <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
+      <% y_axis_title = user_analyses.first.analysis.unit %>
+      <h2 class="m-5"><%=name %></h2>
+      <div id="container-analyses" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
+    <% end %>
+  </div>
 </div>

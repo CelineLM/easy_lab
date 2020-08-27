@@ -31,21 +31,34 @@ require('highcharts/modules/exporting')(Highcharts);
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-const allAnalysesContainer = document.querySelectorAll('#all-analyses');
-const allCharts = () => {allAnalysesContainer.foreach(item => {
-  makeCharts();
-})}; 
+const allAnalysesContainer = document.querySelectorAll('.container')
+
 
 const makeCharts = () => {
-  const datesXAxis = document.querySelector("#container").dataset.dates.split(', ');
-  const values = document.querySelector("#container").dataset.values.split(', ');
-  const unit = document.querySelector("#container").dataset.unit;
-  let finalData = [];
-  values.forEach(element => {
-    finalData.push(parseFloat(element));
+  const containerAnalyses = document.querySelector("#container-analyses")
+  const miniValues = containerAnalyses.dataset.minValue.split(', ');
+  const maxiValues = containerAnalyses.dataset.maxValue.split(', ');
+  const datesXAxis = containerAnalyses.dataset.dates.split(', ');
+  const values = containerAnalyses.dataset.values.split(', ');
+  const unit = containerAnalyses.dataset.unit;
+
+  let minValues = [];
+  miniValues.forEach(value => {
+    minValues.push(parseFloat(value));
   });
 
-  Highcharts.chart('container', {
+  let maxValues = [];
+  maxiValues.forEach(value => {
+    maxValues.push(parseFloat(value));
+  });
+
+  let finalData = [];
+  values.forEach(value => {
+    finalData.push(parseFloat(value));
+  });
+
+
+  Highcharts.chart('container-analyses', {
     chart: {
       type: 'line'
     },
@@ -69,12 +82,19 @@ const makeCharts = () => {
       }
     },
     series: [{
-      name: "",
+      name: "Vos valeurs",
       data: finalData
+    }, {
+      name: "Valeurs usuelles minimum",
+      data: minValues
+    }, {
+      name: "Valeurs usuelles maximum",
+      data: maxValues
     }]
   });
 };
 
+
 document.addEventListener('turbolinks:load', () => {
-  allCharts();
+  makeCharts();
 });

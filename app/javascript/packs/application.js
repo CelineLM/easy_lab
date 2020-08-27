@@ -27,54 +27,15 @@ import "bootstrap";
 var Highcharts = require('highcharts');  
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);  
+import { makeCharts } from './charts';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-const allAnalysesContainer = document.querySelectorAll('#all-analyses');
-const allCharts = () => {allAnalysesContainer.foreach(item => {
-  makeCharts();
-})}; 
-
-const makeCharts = () => {
-  const datesXAxis = document.querySelector("#container").dataset.dates.split(', ');
-  const values = document.querySelector("#container").dataset.values.split(', ');
-  const unit = document.querySelector("#container").dataset.unit;
-  let finalData = [];
-  values.forEach(element => {
-    finalData.push(parseFloat(element));
-  });
-
-  Highcharts.chart('container', {
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: ""
-    },
-    xAxis: {
-      categories: datesXAxis
-    },
-    yAxis: {
-      title: {
-        text: unit
-      }
-    },
-    plotOptions: {
-      line: {
-        dataLabels: {
-          enabled: true
-        },
-        enableMouseTracking: false
-      }
-    },
-    series: [{
-      name: "",
-      data: finalData
-    }]
-  });
-};
 
 document.addEventListener('turbolinks:load', () => {
-  allCharts();
+  makeCharts();
+  // document.querySelectorAll('#all-analyses').forEach(() => {
+  //   makeCharts
+  // });
 });

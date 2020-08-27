@@ -12,7 +12,7 @@ class CheckupsController < ApplicationController
     split_table = reader.pages.first.text.split("\n")
     split_table.delete("""")
     allanalyse = Analysis.all
-    results_array  = []  
+    results_array  = []
     allanalyse.each do |analyse|
       result = split_table.grep(/#{analyse.name}/)
       unless result.empty?

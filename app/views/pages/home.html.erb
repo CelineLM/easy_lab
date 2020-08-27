@@ -1,5 +1,9 @@
 <div class="banner">
   <div>
-    <a class="btn btn-flat" href="#">Comprendre mes Analyses</a>
+    <% if user_signed_in? %>
+      <%= link_to "Comprendre mes analyses", user_path(current_user), class: "button-big" %>
+    <% else %>
+      <%= link_to "Comprendre mes analyses", new_user_session_path , class: "button-big" %>
+    <% end %>
   </div>
 </div>

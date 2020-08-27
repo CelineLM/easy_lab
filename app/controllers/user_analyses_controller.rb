@@ -1,7 +1,6 @@
 class UserAnalysesController < ApplicationController
   def index
-    @user_analyses = UserAnalysis.all
-    # .where(checkup.user: current_user)
+    @user_analyses = current_user.user_analyses
   end
 
   def update

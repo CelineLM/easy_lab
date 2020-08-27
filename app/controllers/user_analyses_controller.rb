@@ -1,12 +1,7 @@
 class UserAnalysesController < ApplicationController
   def index
     @user_analyses = current_user.user_analyses
-    @group = @user_analyses.group(:name)
-    @values_array = [];
-    @user_analyses.each do |user_analysis|
-      @values_array << user_analysis.value
-    end
-    @values = @values_array.split.join(', ')
+    @analyses_grouped_by_name = @user_analyses.group_by{ |user_analysis| user_analysis.name }.select { |name, instances| instances.size > 1 } 
   end
 
   def update

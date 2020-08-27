@@ -60,7 +60,7 @@ checkup_1 = Checkup.create!(realized_on: Date.new(2019,8,10), user: user1, labor
 
 checkup_2 = Checkup.create!(realized_on: Date.new(2020,1,20), user: user1, laboratory_name: "Super labo, Bordeaux")
 
-checkup_2 = Checkup.create!(realized_on: Date.new(2020,6,13), user: user1, laboratory_name: "Super labo, Bordeaux")
+checkup_3 = Checkup.create!(realized_on: Date.new(2020,6,13), user: user1, laboratory_name: "Super labo, Bordeaux")
 
 puts 'Finished creating checkups'
 
@@ -130,7 +130,7 @@ vih.photo.attach(io: file_vih, filename: 'vih.png', content_type: 'image/png')
 cholesterol = Analysis.create!(name: "Cholestérol", description: "Le cholestérol est un lipide (corps gras) de la famille des stérols. Son rôle est essentiel dans l’organisme puisqu’il sert à la fabrication des hormones produites  par les glandes génitales et surrénales. Il est en partie fabriqué par le foie, le reste provient de notre alimentation. Il existe deux types de cholestérol : 
 Le LDL est connu comme le 'mauvais cholestérol' car il correspond à l’excès de cholestérol qui se dépose sur les parois des vaisseaux sanguins ;
 Le  HDL  connu comme le 'bon cholestérol' élimine le cholestérol des artères et l’entraîne vers le foie pour être détruit.
-", min_value: 1.60, max_value: 2.20, category: biochimie_du_sang)
+", min_value: 1.60, max_value: 2.20, category: biochimie_du_sang, unit: "g/l")
 file_cholesterol = URI.open('https://cdn.lostempireherbs.com/wp-content/uploads/2015/04/Cholesterol_plaque1_shutterstock_1083808715-600x322.png')
 cholesterol.photo.attach(io: file_cholesterol, filename: 'cholesterol.png', content_type: 'image/png')
 
@@ -138,17 +138,17 @@ puts 'Finished creating analyses'
 
 puts "Creating user_analyses..."
 
-user1_checkup1_analysis1 = UserAnalysis.new(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
-user1_checkup1_analysis1.save!
-
-user1_checkup1_analysis2 = UserAnalysis.new(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
-user1_checkup1_analysis2.save!
-
+user1_checkup1_analysis1 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
+user1_checkup1_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
 user1_checkup1_analysis3 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.65)
 
 user1_checkup2_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.05)
+user1_checkup2_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_2, analysis: plaquettes, value: 188.0)
+user1_checkup2_analysis3 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_2, analysis: leucocytes, value: 4.4)
 
-user1_checkup3_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.0)
+user1_checkup3_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: cholesterol, value: 2.0)
+user1_checkup3_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_3, analysis: plaquettes, value: 180.0)
+user1_checkup3_analysis3 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_3, analysis: leucocytes, value: 4.3)
 
 puts 'Finished creating user_analyses'
 

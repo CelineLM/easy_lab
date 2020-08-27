@@ -28,15 +28,18 @@ var Highcharts = require('highcharts');
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);  
 
-
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+const allAnalysesContainer = document.querySelectorAll('#all-analyses');
+const allCharts = () => {allAnalysesContainer.foreach(item => {
+  makeCharts();
+})}; 
 
-
-document.addEventListener('turbolinks:load', () => {
+const makeCharts = () => {
+  const datesXAxis = document.querySelector("#container").dataset.dates.split(', ');
   const values = document.querySelector("#container").dataset.values.split(', ');
-  console.log(values);
+  const unit = document.querySelector("#container").dataset.unit;
   let finalData = [];
   values.forEach(element => {
     finalData.push(parseFloat(element));
@@ -47,17 +50,14 @@ document.addEventListener('turbolinks:load', () => {
       type: 'line'
     },
     title: {
-      text: 'Monthly Average Temperature'
-    },
-    subtitle: {
-      text: 'Source: WorldClimate.com'
+      text: ""
     },
     xAxis: {
-      categories: ['Jan']
+      categories: datesXAxis
     },
     yAxis: {
       title: {
-        text: 'Temperature (°C)'
+        text: unit
       }
     },
     plotOptions: {
@@ -69,8 +69,12 @@ document.addEventListener('turbolinks:load', () => {
       }
     },
     series: [{
-      name: 'London',
+      name: "",
       data: finalData
     }]
   });
+};
+
+document.addEventListener('turbolinks:load', () => {
+  allCharts();
 });

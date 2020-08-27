@@ -1,11 +1,12 @@
 
 <h1>evolution</h1>
 
-<% @user_analyses.each do |user_analysis| %>
-    <%= user_analysis.name %>
-    <%= user_analysis.value %> <%= user_analysis.analysis.unit %>
-<% end %>
-
-<%= @group %>
-
-<div id="container" data-values='<%= @values %>' ></div>
+<div id="all-analyses">
+  <% @analyses_grouped_by_name.each do |name, user_analyses| %>
+    <% values = user_analyses.map(&:value).join(', ') %>
+    <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
+    <% y_axis_title = user_analyses.first.analysis.unit %>
+    <h2 class="text-center"><%=name %></h2>
+    <div id="container" data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
+  <% end %>
+</div>

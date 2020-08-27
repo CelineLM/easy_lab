@@ -35,11 +35,12 @@ require('highcharts/modules/exporting')(Highcharts);
 
 
 document.addEventListener('turbolinks:load', () => {
-  const values = document.querySelector("#container").dataset.values;
-  console.log(typeof(values));
-  // values.forEach(element => {
-  //   console.log(parseFloat(element));
-  // });
+  const values = document.querySelector("#container").dataset.values.split(', ');
+  console.log(values);
+  let finalData = [];
+  values.forEach(element => {
+    finalData.push(parseFloat(element));
+  });
 
   Highcharts.chart('container', {
     chart: {
@@ -69,7 +70,7 @@ document.addEventListener('turbolinks:load', () => {
     },
     series: [{
       name: 'London',
-      data: [1, 2]
+      data: finalData
     }]
   });
 });

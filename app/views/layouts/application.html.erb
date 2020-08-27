@@ -13,11 +13,16 @@
   </head>
 
   <body>
-    <%# <% unless controller_name == "pages" %>
+    <div class="min-height" >
+      <%# <% unless controller_name == "pages" %>
       <%= render 'shared/navbar' %>
-    <%# <% end %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+      <%# <% end %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <div class="push"></div>
+    </div>
+    <div class="footer-100">
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

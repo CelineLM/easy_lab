@@ -3,13 +3,13 @@
   <% @grouped_user_analyses.each do |category, user_analyses| %>
     <div class="category-card">
       <div class="category-card-title" >
-        <h2><%= category.name %></h2>
+        <h3><%= category.name %></h3>
       </div>
       <% user_analyses.each do |user_analysis| %>
       <div class="category-card-content">
           <div class="category-card-column"><button class="btn btn-info" type="button" data-toggle="collapse" data-target=".multi-collapse<%= user_analysis.id %>" aria-expanded="false" aria-controls="multiCollapseExample1<%= user_analysis.id %>  multiCollapseExample2<%= user_analysis.id %>"><i class="fas fa-arrow-alt-circle-down"></i></button></div>
           <div class="category-card-column" > <h5><%= user_analysis.name %></h5></div>
-          <div class="category-card-column" ><%= user_analysis.value %><%= user_analysis.analysis.unit %></div>
+          <div class="category-card-column" ><%= user_analysis.value %> <%= user_analysis.analysis.unit %></div>
           <div class="category-card-column" ><%= user_analysis.analysis.min_value %></div>
           <div class="category-card-column" ><%= user_analysis.analysis.max_value %></div>
       </div>

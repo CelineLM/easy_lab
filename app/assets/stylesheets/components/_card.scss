@@ -8,6 +8,9 @@
   p {
     margin: 0;
   }
+  a {
+    text-decoration: none
+  }
 }
 
 .card-analyses-top {
@@ -50,6 +53,14 @@
         color: $dark-grey-blue;
       }
    }
+  i {
+    color: $blue-green;
+    position: absolute;
+    margin-left: 110px;
+    &:hover {
+      color: $dark-grey-blue;
+    }
+  }
 }
 
 

@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper-dashboard">
 
   <h1 class="text-center">Mon tableau de bord</h1>
 
@@ -7,7 +7,6 @@
     <div class="colum-l " >
       <div>
         <h2 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h2>
-        <br>
         <div class="all-graphs-wrapper flexbox-2 ">
           <% @analyses_grouped_by_name.first(2).each do |name, user_analyses| %>
             <div class="graph-dashboard-width ">
@@ -25,8 +24,8 @@
 
       <div>
         <h2 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h2>
-        <br>
-        <div class="flexbox-2">
+        <div class="dashboard-history">
+          <div class="flexbox-2">
           <div class="columns-history"> <h5>Réalisées le</h5></div>
           <div class="columns-history"> <h5>Au Laboratoire</h5></div>
         </div>
@@ -37,6 +36,7 @@
           </div>
         <% end %>
       </div>
+        </div>
     </div>
 
     <div class="download-wrapper">

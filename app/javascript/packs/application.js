@@ -35,7 +35,4 @@ import { makeCharts } from './charts';
 
 document.addEventListener('turbolinks:load', () => {
   makeCharts();
-  // document.querySelectorAll('#all-analyses').forEach(() => {
-  //   makeCharts
-  // });
 });

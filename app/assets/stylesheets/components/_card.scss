@@ -74,6 +74,16 @@
   }
 }
 
+.category-card-headers {
+  background-color: white;
+  color: $grey-blue;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+}
+
 .category-card-content {
   background-color: white;
   color: $grey-blue;

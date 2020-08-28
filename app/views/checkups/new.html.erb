@@ -1,7 +1,17 @@
 
 <%= simple_form_for @checkup do |f| %>
-  <%= f.input :realized_on, placeholder: "Date"  %>
-  <%= f.input :laboratory_name, placeholder: "Laboratoire" %>
+  <%= f.input :realized_on, label: "Date", :order => [:day, :month, :year] %>
+  <%= f.input :laboratory_name, label: "Laboratoire" %>
+
+  <% @results.keys.each do |analysis_id| %>
+    <%= Analysis.find(analysis_id).id %>
+    <%= f.simple_fields_for :user_analyses, UserAnalysis.new do |ua| %>
+      <%#= ua.input :name%>
+      <%= ua.association :analysis %>
+      <%= ua.input :value, input_html: {value: @results[analysis_id].to_f} %>
+    <% end %>
+  <% end %>
+
     <%= f.submit%>
 
 <% end %>

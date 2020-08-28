@@ -14,4 +14,14 @@
 
 .flexbox-2 {
   display: flex;
+  width: 100%;
+}
+
+.column-r, .colum-l {
+  width: 50%
+}
+
+.columns-history {
+  width: 50%;
+  color: $dark-grey-blue;
 }

@@ -1,8 +1,7 @@
-<div class="container">
-<%= simple_form_for @checkup do |f|%>
-  <%= f.input :file, as: :file %>
-  <%= f.submit "Télécharger fichier" %>
+
+<%= simple_form_for @checkup do |f| %>
+  <%= f.input :realized_on, placeholder: "Date"  %>
+  <%= f.input :laboratory_name, placeholder: "Laboratoire" %>
+    <%= f.submit%>
+
 <% end %>
-
-
-

@@ -1,6 +1,7 @@
 class CheckupsController < ApplicationController
   def index
     @checkups = Checkup.where(user: current_user)
+    @checkup = Checkup.new
   end
 
   def new
@@ -8,17 +9,7 @@ class CheckupsController < ApplicationController
   end
 
   def create
-    reader = PDF::Reader.new(params[:checkup][:file].open)
-    split_table = reader.pages.first.text.split("\n")
-    split_table.delete("""")
-    allanalyse = Analysis.all
-    results_array  = []  
-    allanalyse.each do |analyse|
-      result = split_table.grep(/#{analyse.name}/)
-      unless result.empty?
-        results_array << [analyse.name, result.first.match(/\d{1,2}[,]\d{1,2}/).to_s.gsub(",", ".").to_f]
-      end
-    end
+    #redirect_to new_checkup_path
   end
 
   def show

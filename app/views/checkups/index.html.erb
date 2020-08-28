@@ -1,8 +1,9 @@
 <div class="wrapper">
   <h1 class="text-center">Historique de vos analyses</h1>
-  <%= render "shared/choose_a_file" %>
-  <div class="button-wrapper">
-  <%= link_to "Ajouter des analyses", new_checkup_path, class: "button-blue" %>
+
+  <div class="download-wrapper">
+    <h3 class="text-center">Ajouter des analyses</h3>
+    <%= render "shared/choose_a_file" %>
   </div>
 
   <div class="flexbox-2" >
@@ -21,6 +22,9 @@
 
           <div class="card-analyses-bottom">
             <%= link_to "Voir le détail", checkup_path(checkup) %>
+            <%= link_to checkup_path(checkup), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer ces analyses ?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
           </div>
         </div>
       <% end %>

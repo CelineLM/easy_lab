@@ -41,7 +41,6 @@ user3.photo.attach(io: file_user3, filename: 'jessica.jpg', content_type: 'image
 
 puts "users created"
 
-
 puts "Cleaning users analyses..."
 UserAnalysis.destroy_all
 
@@ -54,15 +53,6 @@ Category.destroy_all
 puts "Cleaning checkups..."
 Checkup.destroy_all
 
-puts "Creating checkups..."
-
-checkup_1 = Checkup.create!(realized_on: Date.new(2019,8,10), user: user1, laboratory_name: "Super labo, Bordeaux")
-
-checkup_2 = Checkup.create!(realized_on: Date.new(2020,1,20), user: user1, laboratory_name: "Super labo, Bordeaux")
-
-checkup_3 = Checkup.create!(realized_on: Date.new(2020,6,13), user: user1, laboratory_name: "Super labo, Bordeaux")
-
-puts 'Finished creating checkups'
 
 puts "Creating categories..."
 
@@ -78,17 +68,20 @@ serologie_infectieuse = Category.create!(name: "Sérologie infectieuse")
 
 puts 'Finished creating categories'
 
+
+
+
 puts "Creating analyses..."
 
 leucocytes = Analysis.new(name: "Leucocytes", description: "Les globules blancs ont en charge la défense du corps contre les micro-organismes (virus, bactéries, champignons). On en distingue 3 variétés : Les polynucléaires, Les lymphocytes et Les lymphocytes. Les polynucléaires sont de trois types : polynucléaires neutrophiles : ils augmentent en cas d’infection bactérienne (ex. : pneumonie); polynucléaires éosinophiles : ils augmentent en cas d’allergie, ou d’infection parasitaires (ex. : oxyurose…) et polynucléaires basophiles : leur taux peut être augmenté en cas de réaction allergique, infectieuse… . Les lymphocytes se multiplient face à une infection virale ou à une maladie auto-immune. Les monocytes deviennent plus nombreux durant certaines maladies infectieuses (ex. : mononucléose, toxoplasmose). Le nombre de leucocytes peut aussi varier en cas de trouble du fonctionnement de la moelle osseuse, ou suite à la prise de certains médicaments.", min_value: 4.0, max_value: 11.0, category: hematologie, unit: "g/l")
 leucocytes.save!
 
-hematies = Analysis.new(name: "Hematies", description: "Les globules rouges servent à transporter l’oxygène des poumons vers les tissus. On évalue leur nombre, par exemple pour détecter une polyglobulie (taux d’hématies trop élevé) ou une anémie (taux d'hématies trop bas). On étudie aussi plusieurs autres caractéristiques des globules rouges : Le volume globulaire moyen (VGM) est un indicateur de la taille des globules rouges, L’hématocrite est le pourcentage du volume sanguin occupé par les hématies. Il diminue en cas d’anémie, et augmente par exemple lors d’un épisode de déshydratation et Le taux de réticulocytes correspond au nombre de jeunes globules rouges nouvellement produits par la moelle osseuse. Il donne donc des indications sur le fonctionnement de cette dernière. On étudie aussi l'hémoglobine que les hématies contiennent, sous plusieurs aspects : Le taux d’hémoglobine dans le sang est normalement de 13 grammes par décilitre (g/dl) chez l’homme, et 12 chez la femme. À partir du deuxième trimestre de grossesse, il tombe à 10,5 g/dl, La concentration corpusculaire (ou globulaire) moyenne en hémoglobine (CCMH ou CGMH) est la quantité d’hémoglobine contenue dans 100 millilitres de globules rouges et La teneur corpusculaire (ou globulaire) moyenne en hémoglobine (TCMH ou TGMH) est la quantité moyenne d’hémoglobine contenue dans un globule rouge.", min_value: 4.0, max_value: 5.2, category: hematologie, unit: "T/L")
+hematies = Analysis.new(name: "Hématies", description: "Les globules rouges servent à transporter l’oxygène des poumons vers les tissus. On évalue leur nombre, par exemple pour détecter une polyglobulie (taux d’hématies trop élevé) ou une anémie (taux d'hématies trop bas). On étudie aussi plusieurs autres caractéristiques des globules rouges : Le volume globulaire moyen (VGM) est un indicateur de la taille des globules rouges, L’hématocrite est le pourcentage du volume sanguin occupé par les hématies. Il diminue en cas d’anémie, et augmente par exemple lors d’un épisode de déshydratation et Le taux de réticulocytes correspond au nombre de jeunes globules rouges nouvellement produits par la moelle osseuse. Il donne donc des indications sur le fonctionnement de cette dernière. On étudie aussi l'hémoglobine que les hématies contiennent, sous plusieurs aspects : Le taux d’hémoglobine dans le sang est normalement de 13 grammes par décilitre (g/dl) chez l’homme, et 12 chez la femme. À partir du deuxième trimestre de grossesse, il tombe à 10,5 g/dl, La concentration corpusculaire (ou globulaire) moyenne en hémoglobine (CCMH ou CGMH) est la quantité d’hémoglobine contenue dans 100 millilitres de globules rouges et La teneur corpusculaire (ou globulaire) moyenne en hémoglobine (TCMH ou TGMH) est la quantité moyenne d’hémoglobine contenue dans un globule rouge.", min_value: 4.0, max_value: 5.2, category: hematologie, unit: "T/L")
 hematies.save!
 file_hematies = URI.open('https://idata.over-blog.com/5/13/60/16/hematie-apparence.png')
 hematies.photo.attach(io: file_hematies, filename: 'hematies.png', content_type: 'image/png')
 
-hemoglobine = Analysis.new(name: "hemoglobine", description: "Composant des globules rouges, qui donne la couleur rouge au sang et qui, à l’aide du fer, permet de fixer successivement l’oxygène et le gaz carbonique.", min_value: 11.5, max_value: 15.0, category: hematologie, unit: "g/dl")
+hemoglobine = Analysis.new(name: "Hémoglobine", description: "Composant des globules rouges, qui donne la couleur rouge au sang et qui, à l’aide du fer, permet de fixer successivement l’oxygène et le gaz carbonique.", min_value: 11.5, max_value: 15.0, category: hematologie, unit: "g/dl")
 hemoglobine.save!
 file_hemoglobine = URI.open('https://optimaltkosthold.files.wordpress.com/2015/09/shutterstock_166034111.jpg')
 hemoglobine.photo.attach(io: file_hemoglobine, filename: 'hemoglobine.jpg', content_type: 'image/jpg')
@@ -97,6 +90,9 @@ hematocrite = Analysis.new(name: "Hématocrite", description: "L'hématrocrite c
 hematocrite.save!
 file_hematocrite = URI.open('http://christophe.laborie1.free.fr/le%20dopage%20sanguin/sources/hematocrite/sang2.jpg')
 hematocrite.photo.attach(io: file_hematocrite, filename: 'hematocrite.jpg', content_type: 'image/jpg')
+
+vgm = Analysis.create!(name: "V.G.M.", description: "Le VGM, volume globulaire moyen est une valeur reflétant la taille moyenne des globules rouges circulant dans notre sang.
+Elle est utilisée comme indicateur pour dépister certaines pathologies ou pour mettre en évidence une consommation régulière excessive d'alcool.", min_value: 76, max_value: 96, category: hematologie, unit: "fL")
 
 tcmh = Analysis.new(name: "T.C.M.H.", description: "La mesure de la teneur corpusculaire moyenne en hémoglobine (TCMH) représente la quantité d'hémoglobine contenue dans un globule rouge, la molécule qui transporte l'oxygène jusqu'aux organes. Cette mesure est souvent comparée à la concentration corpusculaire moyenne en hémoglobine (CCMH), qui est plus précise. Le TCMH se calcule en divisant la concentration d'hémoglobine dans le sang par le nombre de globules rouges.", min_value: 24.0, max_value: 33.0, category: hematologie, unit: "pg")
 tcmh.save!
@@ -117,7 +113,7 @@ glycemie.save!
 file_glycemie = URI.open('https://www.santepourtous.nc/images/sampledata/thematiques/diabete/espace-grand-public/solutions-au-quotidien/glycemie-a-jeun.jpg')
 glycemie.photo.attach(io: file_glycemie, filename: 'glycemie.jpg', content_type: 'image/jpg')
 
-syphilis = Analysis.new(name: "Sérologie de la Syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", max_value: 0.99, category: serologie_infectieuse)
+syphilis = Analysis.new(name: "Sérologie de la Syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", max_value: 0.99, category: serologie_infectieuse, unit: "UA")
 syphilis.save!
 file_syphilis = URI.open('https://i2.wp.com/images-prod.healthline.com/hlcmsresource/images/Image-Galleries/Secondary-Syphilis/SYPH021-01-EarlyStages.jpg?resize=648%2C488&ssl=1')
 syphilis.photo.attach(io: file_syphilis, filename: 'syphilis.jpg', content_type: 'image/jpg')
@@ -127,7 +123,7 @@ vih.save!
 file_vih = URI.open('https://www.actions-traitements.org/wp-content/uploads/2014/06/Capture-d%E2%80%99%C3%A9cran-2014-07-29-%C3%A0-16.21.02.png')
 vih.photo.attach(io: file_vih, filename: 'vih.png', content_type: 'image/png')
 
-cholesterol = Analysis.create!(name: "Cholestérol", description: "Le cholestérol est un lipide (corps gras) de la famille des stérols. Son rôle est essentiel dans l’organisme puisqu’il sert à la fabrication des hormones produites  par les glandes génitales et surrénales. Il est en partie fabriqué par le foie, le reste provient de notre alimentation. Il existe deux types de cholestérol : 
+cholesterol = Analysis.create!(name: "Cholestérol total", description: "Le cholestérol est un lipide (corps gras) de la famille des stérols. Son rôle est essentiel dans l’organisme puisqu’il sert à la fabrication des hormones produites  par les glandes génitales et surrénales. Il est en partie fabriqué par le foie, le reste provient de notre alimentation. Il existe deux types de cholestérol : 
 Le LDL est connu comme le 'mauvais cholestérol' car il correspond à l’excès de cholestérol qui se dépose sur les parois des vaisseaux sanguins ;
 Le  HDL  connu comme le 'bon cholestérol' élimine le cholestérol des artères et l’entraîne vers le foie pour être détruit.
 ", min_value: 1.60, max_value: 2.20, category: biochimie_du_sang, unit: "g/l")
@@ -136,19 +132,49 @@ cholesterol.photo.attach(io: file_cholesterol, filename: 'cholesterol.png', cont
 
 puts 'Finished creating analyses'
 
+
+puts "Creating checkups..."
+
+checkup_1 = Checkup.create!(realized_on: Date.new(2019,02,23), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+checkup_2 = Checkup.create!(realized_on: Date.new(2019,8,20), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+checkup_3 = Checkup.create!(realized_on: Date.new(2020,2,13), user: user1, laboratory_name: "Super labo, Bordeaux")
+
+puts 'Finished creating checkups'
+
 puts "Creating user_analyses..."
 
-user1_checkup1_analysis1 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
-user1_checkup1_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
-user1_checkup1_analysis3 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.65)
+UserAnalysis.create!(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
+UserAnalysis.create!(name: "Hématie", checkup: checkup_1, analysis: hematies, value: 4.3)
+UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_1, analysis: hemoglobine, value: 13.2)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_1, analysis: vgm, value: 13.2)
+UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_1, analysis: tcmh, value: 30)
+UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_1, analysis: ccmh, value: 31.6)
+UserAnalysis.create!(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
+UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_1, analysis: glycemie, value: 0.96)
+UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.86)
 
-user1_checkup2_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.05)
-user1_checkup2_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_2, analysis: plaquettes, value: 188.0)
-user1_checkup2_analysis3 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_2, analysis: leucocytes, value: 4.4)
+UserAnalysis.create!(name: "Leucocytes", checkup: checkup_2, analysis: leucocytes, value: 4.4)
+UserAnalysis.create!(name: "Hématie", checkup: checkup_2, analysis: hematies, value: 4.6)
+UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_2, analysis: hemoglobine, value: 13.0)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_2, analysis: vgm, value: 13.5)
+UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_2, analysis: tcmh, value: 31.6)
+UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_2, analysis: ccmh, value: 33)
+UserAnalysis.create!(name: "Plaquettes", checkup: checkup_2, analysis: plaquettes, value: 188.0)
+UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_2, analysis: glycemie, value: 1.05)
+UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.10)
 
-user1_checkup3_analysis1 = UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: cholesterol, value: 2.0)
-user1_checkup3_analysis2 = UserAnalysis.create!(name: "Plaquettes", checkup: checkup_3, analysis: plaquettes, value: 180.0)
-user1_checkup3_analysis3 = UserAnalysis.create!(name: "Leucocytes", checkup: checkup_3, analysis: leucocytes, value: 4.3)
+UserAnalysis.create!(name: "Leucocytes", checkup: checkup_3, analysis: leucocytes, value: 4.3)
+UserAnalysis.create!(name: "Hématie", checkup: checkup_3, analysis: hematies, value: 4.4)
+UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_3, analysis: hemoglobine, value: 13.0)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_3, analysis: vgm, value: 14.0)
+UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_3, analysis: tcmh, value: 31.2)
+UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_3, analysis: ccmh, value: 33.6)
+UserAnalysis.create!(name: "Plaquettes", checkup: checkup_3, analysis: plaquettes, value: 180.0)
+UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_3, analysis: glycemie, value: 1.20)
+UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: cholesterol, value: 2.30)
+
 
 puts 'Finished creating user_analyses'
 

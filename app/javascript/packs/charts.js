@@ -3,14 +3,14 @@ var Highcharts = require('highcharts');
 require('highcharts/modules/exporting')(Highcharts);  
 
 const makeCharts = () => {
-  const containerAnalyses = document.querySelector("#container-analyses");
-  const miniValues = containerAnalyses.dataset.minValue.split(', ');
-  const maxiValues = containerAnalyses.dataset.maxValue.split(', ');
-  const datesXAxis = containerAnalyses.dataset.dates.split(', ');
-  const values = containerAnalyses.dataset.values.split(', ');
-  const unit = containerAnalyses.dataset.unit;
+  const containerAnalyses = document.querySelectorAll(".container-analyses");
 
-  console.log(values);
+  containerAnalyses.forEach((analyse) => {
+    const miniValues = analyse.dataset.minValue.split(', ');
+    const maxiValues = analyse.dataset.maxValue.split(', ');
+    const datesXAxis = analyse.dataset.dates.split(', ');
+    const values = analyse.dataset.values.split(', ');
+    const unit = analyse.dataset.unit;
 
   let minValues = [];
   miniValues.forEach(value => {
@@ -28,7 +28,7 @@ const makeCharts = () => {
   });
 
 
-  Highcharts.chart('container-analyses', {
+  Highcharts.chart(analyse.id, {
     chart: {
       type: 'line'
     },
@@ -62,6 +62,7 @@ const makeCharts = () => {
       data: maxValues
     }]
   });
+});
 };
 
 export { makeCharts };

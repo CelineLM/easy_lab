@@ -18,7 +18,11 @@
 }
 
 .column-r, .colum-l {
-  width: 50%
+  width: 50%;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .columns-history {

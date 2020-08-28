@@ -2,9 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: asset-url('dna.jpg');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2),rgba(255, 255, 255,0.2)), asset-url('dna.jpg');
   background-size: cover;
   background-position: center;
   height: 75vh;
   opacity: 0.9;
+  a {
+    text-decoration: none;
+  }
 }

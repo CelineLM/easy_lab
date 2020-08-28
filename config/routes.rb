@@ -6,4 +6,6 @@ Rails.application.routes.draw do
     resources :user_analyses, only: :update
   end
   resources :user_analyses, only: [:index, :destroy]
+
+  resources :pdfs, only: [:create]
 end

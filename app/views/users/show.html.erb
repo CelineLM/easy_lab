@@ -4,22 +4,25 @@
 
   <div class="flexbox-2">
 
-    <div class="colum-l" >
+    <div class="colum-l " >
       <div>
-        <h2 class="text-center"><%= link_to "Evolution de mes Analyses", user_analyses_path %></h2>
+        <h2 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h2>
         <br>
-        <% @analyses_grouped_by_name.each do |name, user_analyses| %>
-          <div id="all-analyses" class="graph-container">
-            <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
-            <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
-            <% values = user_analyses.map(&:value).join(', ') %>
-            <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
-            <% y_axis_title = user_analyses.first.analysis.unit %>
-            <h2 class="text-center"><%=name %></h2>
-            <div id="container-analyses" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
-          </div>
-        <% end %>
+        <div class="all-graphs-wrapper flexbox-2 ">
+          <% @analyses_grouped_by_name.first(2).each do |name, user_analyses| %>
+            <div class="graph-dashboard-width ">
+              <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
+              <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
+              <% values = user_analyses.map(&:value).join(', ') %>
+              <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
+              <% y_axis_title = user_analyses.first.analysis.unit %>
+              <h2 class="text-center"><%=name %></h2>
+              <div class="container-analyses" id="graph-<%= name.parameterize %>" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
+            </div>
+          <% end %>
+        </div>
       </div>
+
       <div>
         <h2 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h2>
         <br>

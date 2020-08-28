@@ -9,14 +9,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
 
-    
+
   </head>
 
   <body>
-    <%# <% unless controller_name == "pages" %>
+    <div class="min-height" >
+      <%# <% unless controller_name == "pages" %>
       <%= render 'shared/navbar' %>
-    <%# <% end %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+      <%# <% end %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <div class="push"></div>
+    </div>
+    <div class="footer-100">
+      <%= render 'shared/footer' %>
+    </div>
   </body>
 </html>

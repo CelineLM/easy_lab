@@ -27,49 +27,15 @@ import "bootstrap";
 var Highcharts = require('highcharts');  
 // Load module after Highcharts is loaded
 require('highcharts/modules/exporting')(Highcharts);  
-
+import { makeCharts } from './charts';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 
-
 document.addEventListener('turbolinks:load', () => {
-  const values = document.querySelector("#container").dataset.values;
-  console.log(typeof(values));
-  // values.forEach(element => {
-  //   console.log(parseFloat(element));
+  makeCharts();
+  // document.querySelectorAll('#all-analyses').forEach(() => {
+  //   makeCharts
   // });
-
-  Highcharts.chart('container', {
-    chart: {
-      type: 'line'
-    },
-    title: {
-      text: 'Monthly Average Temperature'
-    },
-    subtitle: {
-      text: 'Source: WorldClimate.com'
-    },
-    xAxis: {
-      categories: ['Jan']
-    },
-    yAxis: {
-      title: {
-        text: 'Temperature (°C)'
-      }
-    },
-    plotOptions: {
-      line: {
-        dataLabels: {
-          enabled: true
-        },
-        enableMouseTracking: false
-      }
-    },
-    series: [{
-      name: 'London',
-      data: [1, 2]
-    }]
-  });
 });

@@ -1,3 +1,17 @@
-.pictures {
+.flex-container2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+    padding-bottom: 32px;
+}
+
+.flex-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.flexbox-2 {
   display: flex;
 }

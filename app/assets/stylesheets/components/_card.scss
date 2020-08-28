@@ -1,3 +1,5 @@
+// Checkup index
+
 .card-analyses {
   width: 400px;
   margin: 20px 0;
@@ -17,6 +19,9 @@
   padding: 10px 20px;
   i {
     margin-right: 10px;
+  }
+  h6 {
+    margin: 0;
   }
 }
 
@@ -52,16 +57,17 @@
 // Checkup show
 
 .category-card {
-  width: 80%;
+  width: 95%;
   margin: 50px auto;
   border-radius: 20px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .category-card-title {
   background-color: $grey-blue;
   color: white;
   border-radius: 20px 20px 0 0;
-  h2 {
+  h3 {
     text-align: center;
     padding: 10px;
     margin: 0px;
@@ -71,13 +77,19 @@
 .category-card-content {
   background-color: white;
   color: $grey-blue;
-  margin-top: 0;
+  margin-top: 5px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 10px 0;
 }
 
 .category-card-column {
-  width: 25%;
+  width: 20%;
   text-align: center;
+}
+
+.category-card-bottom {
+  background-color: $grey-blue;
+  border-radius: 0 0 20px 20px;
 }

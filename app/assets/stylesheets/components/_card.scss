@@ -70,14 +70,14 @@
 .category-card {
   width: 95%;
   margin: 50px auto;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
 }
 
 .category-card-title {
   background-color: $grey-blue;
   color: white;
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px 10px 0 0;
   h3 {
     text-align: center;
     padding: 10px;
@@ -105,6 +105,15 @@
   padding: 10px 0;
 }
 
+.good-color {
+  color: #55a630;
+  font-weight: bold;
+}
+.bad-color {
+  color: #f3722c;
+  font-weight: bold;
+}
+
 .category-card-column {
   width: 20%;
   text-align: center;
@@ -112,5 +121,5 @@
 
 .category-card-bottom {
   background-color: $grey-blue;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
 }

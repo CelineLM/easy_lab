@@ -4,4 +4,9 @@ class Analysis < ApplicationRecord
   has_one_attached :photo
 
   validates :name, :description, uniqueness: true
+
+
+  def to_s
+    self.name
+  end
 end

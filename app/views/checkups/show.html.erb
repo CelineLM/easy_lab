@@ -1,5 +1,5 @@
 <div class="wrapper" >
-  <h1 class="text-center"> Mes analyses du <%= @checkup.realized_on %> en détails </h1>
+  <h1 class="text-center"> Mes analyses du <%= @checkup.realized_on.strftime("%d/%m/%G") %> en détails </h1>
   <% @grouped_user_analyses.each do |category, user_analyses| %>
     <div class="category-card">
       <div class="category-card-title" >
@@ -18,7 +18,11 @@
       <div class="category-card-content">
           <div class="category-card-column"><button class="btn btn-info" type="button" data-toggle="collapse" data-target=".multi-collapse<%= user_analysis.id %>" aria-expanded="false" aria-controls="multiCollapseExample1<%= user_analysis.id %>  multiCollapseExample2<%= user_analysis.id %>"><i class="fas fa-chevron-circle-down"></i></button></div>
           <div class="category-card-column" ><h6><%= user_analysis.name %></h6></div>
-          <div class="category-card-column" ><%= user_analysis.value %> <%= user_analysis.analysis.unit %></div>
+          <% if user_analysis.value > user_analysis.analysis.max_value || user_analysis.value < user_analysis.analysis.min_value %>
+            <div class="category-card-column bad-color" ><%= user_analysis.value %> <%= user_analysis.analysis.unit %></div>
+          <% else %>
+            <div class="category-card-column good-color" ><%= user_analysis.value %> <%= user_analysis.analysis.unit %></div>
+          <% end %>
           <div class="category-card-column" ><%= user_analysis.analysis.min_value %> <%= user_analysis.analysis.unit %></div>
           <div class="category-card-column" ><%= user_analysis.analysis.max_value %> <%= user_analysis.analysis.unit %></div>
       </div>

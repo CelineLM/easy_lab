@@ -22,9 +22,14 @@
 
           <div class="card-analyses-bottom">
             <%= link_to "Voir le détail", checkup_path(checkup) %>
-            <%= link_to checkup_path(checkup), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer ces analyses ?" } do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
+            <div class="card-icons">
+              <%= link_to edit_checkup_path(checkup), class: "left-icon" do %>
+                <i class="fas fa-pencil-alt"></i>
+              <% end %>
+              <%= link_to checkup_path(checkup), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer ces analyses ?" } do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
           </div>
         </div>
       <% end %>

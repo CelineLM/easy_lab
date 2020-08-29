@@ -2,7 +2,7 @@ class CheckupsController < ApplicationController
   before_action :set_checkup, only: [:show, :edit, :update, :destroy]
 
   def index
-    @checkups = Checkup.where(user: current_user)
+    @checkups = Checkup.where(user: current_user).order(realized_on: :desc)
     @checkup = Checkup.new
   end
 

@@ -1,11 +1,11 @@
-<div class="flexbox-wrapper">
-  <h1 class="text-center">Mon tableau de bord</h1>
+
   <div class="flex-2-columns">
     <div class="column-l" >
+      <h1 class="text-center">Mon tableau de bord</h1>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h2>
+            <h3 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h3>
           </div>
         </div>
         <div class="row">
@@ -26,27 +26,27 @@
             </div>
           </div>
         </div>
-
         <div class="row">
           <div class="col-12">
-            <h2 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h2>
+            <h3 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h3>
           </div>
         </div>
-
         <div class="row">
           <div class="col-12">
             <table>
               <thead>
                 <tr>
-                  <th><h5 class="text-center" >Dates des analyses</h5></th>
-                  <th><h5 class="text-center" >Laboratoires</h5></th>
+                  <th><h5 class="text-center">Dates des analyses</h5></th>
+                  <th><h5 class="text-center">Laboratoires</h5></th>
+                  <th><h5 class="text-center">Voir le détail</h5></th>
                 </tr>
               </thead>
               <tbody>
                 <% current_user.checkups.first(5).each do |checkup| %>
                 <tr>
-                  <td class="text-center"> <%= checkup.realized_on %> </td>
-                  <td class="text-center"> <%= checkup.laboratory_name %> </td>
+                  <td class="text-center"> <%= checkup.realized_on %></td>
+                  <td class="text-center"> <%= checkup.laboratory_name %></td>
+                  <td class="text-center"><i class="fas fa-arrow-circle-right"></i></td>
                 </tr>
                 <% end %>
               </tbody>
@@ -62,9 +62,3 @@
       </div>
     </div>
   </div>
-</div>
-
-
-
-
-

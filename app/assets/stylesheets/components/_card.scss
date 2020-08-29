@@ -123,3 +123,19 @@
   background-color: $grey-blue;
   border-radius: 0 0 10px 10px;
 }
+
+// Home page cards
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.home-cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+    padding-bottom: 32px;
+}

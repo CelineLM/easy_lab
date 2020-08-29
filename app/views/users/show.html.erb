@@ -1,53 +1,65 @@
-<div class="wrapper">
-
+<div class="flexbox-wrapper">
   <h1 class="text-center">Mon tableau de bord</h1>
-
-  <div class="flexbox-2">
-
-    <div class="colum-l " >
-      <div>
-        <h2 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h2>
-        <br>
-        <div class="all-graphs-wrapper flexbox-2 ">
-          <% @analyses_grouped_by_name.first(2).each do |name, user_analyses| %>
-            <div class="graph-dashboard-width ">
-              <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
-              <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
-              <% values = user_analyses.map(&:value).join(', ') %>
-              <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
-              <% y_axis_title = user_analyses.first.analysis.unit %>
-              <h2 class="text-center"><%=name %></h2>
-              <div class="container-analyses" id="graph-<%= name.parameterize %>" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-      <div>
-        <h2 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h2>
-        <br>
-        <div class="flexbox-2">
-          <div class="columns-history"> <h5>Réalisées le</h5></div>
-          <div class="columns-history"> <h5>Au Laboratoire</h5></div>
-        </div>
-        <% current_user.checkups.first(5).each do |checkup| %>
-          <div class="flexbox-2" >
-            <div class="columns-history" ><%= checkup.realized_on %></div>
-            <div class="columns-history" ><%= checkup.laboratory_name %></div>
+  <div class="flex-2-columns">
+    <div class="column-l" >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h2>
           </div>
-        <% end %>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="all-graphs-wrapper">
+              <% @analyses_grouped_by_name.first(2).each do |name, user_analyses| %>
+                <div class="graph-dashboard-width ">
+                  <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
+                  <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
+                  <% values = user_analyses.map(&:value).join(', ') %>
+                  <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
+                  <% y_axis_title = user_analyses.first.analysis.unit %>
+                  <h2 class="text-center"><%=name %></h2>
+                  <div class="container-analyses" id="graph-<%= name.parameterize %>" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <h2 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <table>
+              <thead>
+                <tr>
+                  <th><h5 class="text-center" >Dates des analyses</h5></th>
+                  <th><h5 class="text-center" >Laboratoires</h5></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% current_user.checkups.first(5).each do |checkup| %>
+                <tr>
+                  <td class="text-center"> <%= checkup.realized_on %> </td>
+                  <td class="text-center"> <%= checkup.laboratory_name %> </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="download-wrapper">
-      <h3 class="text-center">Ajouter des analyses</h3>
-      <%= render "shared/choose_a_file" %>
+    <div class="column-r" >
+      <div class="download-wrapper">
+        <h3 class="text-center">Ajouter des analyses</h3>
+        <%= render "shared/choose_a_file" %>
+      </div>
     </div>
-
   </div>
-
 </div>
-
 
 
 

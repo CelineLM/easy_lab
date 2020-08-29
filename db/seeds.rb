@@ -146,7 +146,7 @@ puts 'Finished creating checkups'
 puts "Creating user_analyses..."
 
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
-UserAnalysis.create!(name: "Hématie", checkup: checkup_1, analysis: hematies, value: 4.3)
+UserAnalysis.create!(name: "Hématies", checkup: checkup_1, analysis: hematies, value: 4.3)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_1, analysis: hemoglobine, value: 13.2)
 UserAnalysis.create!(name: "V.G.M.", checkup: checkup_1, analysis: vgm, value: 13.2)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_1, analysis: tcmh, value: 30)
@@ -156,7 +156,7 @@ UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_1, analysis: gl
 UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.86)
 
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_2, analysis: leucocytes, value: 4.4)
-UserAnalysis.create!(name: "Hématie", checkup: checkup_2, analysis: hematies, value: 4.6)
+UserAnalysis.create!(name: "Hématies", checkup: checkup_2, analysis: hematies, value: 4.6)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_2, analysis: hemoglobine, value: 13.0)
 UserAnalysis.create!(name: "V.G.M.", checkup: checkup_2, analysis: vgm, value: 13.5)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_2, analysis: tcmh, value: 31.6)
@@ -166,7 +166,7 @@ UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_2, analysis: gl
 UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: cholesterol, value: 2.10)
 
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_3, analysis: leucocytes, value: 4.3)
-UserAnalysis.create!(name: "Hématie", checkup: checkup_3, analysis: hematies, value: 4.4)
+UserAnalysis.create!(name: "Hématies", checkup: checkup_3, analysis: hematies, value: 4.4)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_3, analysis: hemoglobine, value: 13.0)
 UserAnalysis.create!(name: "V.G.M.", checkup: checkup_3, analysis: vgm, value: 14.0)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_3, analysis: tcmh, value: 31.2)

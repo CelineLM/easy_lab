@@ -1,11 +1,11 @@
 
-  <div class="flex-2-columns">
+  <div class="flex-2-columns-bg">
     <div class="column-l" >
       <h1 class="text-center">Mon tableau de bord</h1>
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h3 class="text-center"><%= link_to "Évolution de mes Analyses", user_analyses_path %></h3>
+            <h3 class="text-center"> <i class="fas fa-chart-bar"></i> <%= link_to " Évolution de mes Analyses", user_analyses_path %></h3>
           </div>
         </div>
         <div class="row">
@@ -28,17 +28,19 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <h3 class="text-center"><%= link_to "Historique de mes Analyses", checkups_path %></h3>
+            <br>
+            <br>
+            <h3 class="text-center"> <i class="fas fa-list-ul"></i> <%= link_to " Historique de mes Analyses", checkups_path %></h3>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <table>
-              <thead>
+            <table class="category-card" >
+              <thead class="category-card-title" >
                 <tr>
-                  <th><h5 class="text-center">Dates des analyses</h5></th>
+                  <th class="radius-10-l" ><h5 class="text-center">Dates</h5></th>
                   <th><h5 class="text-center">Laboratoires</h5></th>
-                  <th><h5 class="text-center">Voir le détail</h5></th>
+                  <th class="radius-10-r" ><h5 class="text-center">Détails</h5></th>
                 </tr>
               </thead>
               <tbody>
@@ -46,7 +48,10 @@
                 <tr>
                   <td class="text-center"> <%= checkup.realized_on %></td>
                   <td class="text-center"> <%= checkup.laboratory_name %></td>
-                  <td class="text-center"><i class="fas fa-arrow-circle-right"></i></td>
+                  <td class="text-center"> <%= link_to checkup_path(checkup) do %>
+                      <h3><i class="fas fa-arrow-circle-right"></i></h3>
+                    <% end %>
+                  </td>
                 </tr>
                 <% end %>
               </tbody>
@@ -56,8 +61,9 @@
       </div>
     </div>
     <div class="column-r" >
-      <div class="download-wrapper">
-        <h3 class="text-center">Ajouter des analyses</h3>
+      <div class="download-wrapper-db">
+        <h4 class="text-center"> Ajouter des analyses <br> <i class="fas fa-arrow-down"></i> </h4>
+        <br>
         <%= render "shared/choose_a_file" %>
       </div>
     </div>

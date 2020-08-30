@@ -1,6 +1,12 @@
+.flex-2-columns-bg {
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255,0.9)), asset-url('dna-bg.jpg');
+  background-size: cover;
+}
+
 .flex-2-columns {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -10,11 +16,15 @@
     text-decoration: none;
     margin-top: 20px;
     color: $blue-green;
+    &:hover {
+      color: $dark-blue;
+      cursor: pointer;
+    }
   }
-
 }
 
 .column-r {
-
+  margin-top: 300px;
+  margin-left: 50px;
 }
 

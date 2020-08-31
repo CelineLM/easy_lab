@@ -1,0 +1,25 @@
+<div class="bg">
+  <div class="wrapper">
+    <div class="analysis-card">
+      <div class="analysis-card-title" >
+        <h2 class= "text-center"><%= @analysis.name %></h2>
+      </div>
+      <div class="analysis-values">
+        Valeurs de Référence : <%= @analysis.min_value %><%= @analysis.unit %> - <%= @analysis.max_value %><%= @analysis.unit %>
+      </div>
+      <div class="analysis-description" >
+        <%= @analysis.description %>
+      </div>
+      <div class="analysis-picture" >
+        <% if @analysis.photo.attached? %>
+          <%= cl_image_tag @analysis.photo.key %>
+        <% end %>
+      </div>
+      <div class="analysis-card-bottom" >
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+

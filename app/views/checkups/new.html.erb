@@ -7,8 +7,7 @@
   <% @results.keys.each do |analysis_id| %>
     <%#= Analysis.find(analysis_id) %>
     <%= f.simple_fields_for :user_analyses, UserAnalysis.new do |ua| %>
-      <%#= ua.input :name%>
-      <%= ua.association :analysis, selected: :analysis_id %>
+      <%= ua.input :analysis_id, collection: Analysis.all, selected: analysis_id %>
       <%= ua.input :value, input_html: {value: @results[analysis_id].to_f} %>
     <% end %>
   <% end %>

@@ -1,10 +1,12 @@
 class PdfsController < ApplicationController
 
   def create
-    #if params[:pdf]
-    if params[:pdf][:file] == []
-      flash[:error] = 'Fields cannot be blank.'
-      render "checkups/new"
+    if params[:pdf].blank?
+      @checkup = Checkup.new
+      @user_analyses = current_user.user_analyses
+      @analyses_grouped_by_name = @user_analyses.group_by{ |user_analysis| user_analysis.name }.select { |name, instances| instances.size > 1 }
+      flash[:alert] = 'Fields cannot be blank.'
+      render "users/show"
     else
       reader = PDF::Reader.new(params[:pdf][:file].open)
       split_table = reader.pages.first.text.split("\n")
@@ -18,9 +20,6 @@ class PdfsController < ApplicationController
         end
       end
       redirect_to new_checkup_path(results: results_array)
-   # else
-     #@checkup = params
-     # render "checkups/new"
     end
   end
 end

@@ -68,9 +68,6 @@ serologie_infectieuse = Category.create!(name: "Sérologie infectieuse")
 
 puts 'Finished creating categories'
 
-
-
-
 puts "Creating analyses..."
 
 leucocytes = Analysis.new(name: "Leucocytes", description: "Les globules blancs ont en charge la défense du corps contre les micro-organismes (virus, bactéries, champignons). On en distingue 3 variétés : Les polynucléaires, Les lymphocytes et Les lymphocytes. Les polynucléaires sont de trois types : polynucléaires neutrophiles : ils augmentent en cas d’infection bactérienne (ex. : pneumonie); polynucléaires éosinophiles : ils augmentent en cas d’allergie, ou d’infection parasitaires (ex. : oxyurose…) et polynucléaires basophiles : leur taux peut être augmenté en cas de réaction allergique, infectieuse… . Les lymphocytes se multiplient face à une infection virale ou à une maladie auto-immune. Les monocytes deviennent plus nombreux durant certaines maladies infectieuses (ex. : mononucléose, toxoplasmose). Le nombre de leucocytes peut aussi varier en cas de trouble du fonctionnement de la moelle osseuse, ou suite à la prise de certains médicaments.", min_value: 4.0, max_value: 11.0, category: hematologie, unit: "g/l")
@@ -177,6 +174,15 @@ UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: c
 
 
 puts 'Finished creating user_analyses'
+
+puts 'cleaning laboratories'
+Laboratory.destroy_all
+
+puts 'Creating laboratories'
+Laboratory.create!(name: "Laboratoire SYNLAB Bordeaux Atlantique", address: "14 cours Balguerie Stuttenberg, 33300 Bordeaux", latitude: 48.862725, longitude: 2.287592)
+Laboratory.create!(name: "EXA LAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux", latitude: 44.86151123046875, longitude: -0.5677474737167358)
+
+puts 'Laboratories created'
 
 puts 'Seeds OK!'
 

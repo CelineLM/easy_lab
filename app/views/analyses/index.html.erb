@@ -1,22 +1,39 @@
-<div class="wrapper">
-  <div class="analyses-flex">
-    <div class="analyses-l">
-      <% @analyses.first(5).each do |analysis| %>
-        <%= link_to analysis_path(analysis) do %>
-          <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= analysis.name %></h4>
+<div class="bg" >
+  <div class="wrapper">
+    <div class="analyses-flex">
+      <div class="analyses-l">
+        <% @categories.each do |category, analysis| %>
+        <!-- Button trigger modal -->
+          <button type="button" data-toggle="modal" data-target="#exampleModalLong">
+            <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= category.name %></h4>
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle"><%= category.name %></h5>
+                </div>
+                <div class="modal-body">
+                  <% category.analyses.each do |analysis| %>
+                    <%= analysis.name %>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-      <% end %>
-    </div>
-    <div class="analyses-center" >
-      <%= image_tag "man-body.svg", width:250 %>
-      <%= image_tag "female-body.svg", width:250 %>
-    </div>
-    <div class="analyses-r">
-      <% @analyses.last(5).each do |analysis| %>
-        <%= link_to analysis_path(analysis) do %>
-          <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= analysis.name %></h4>
-        <% end %>
-      <% end %>
+      </div>
+      <div class="analyses-r" >
+        <%= image_tag "female-body.svg", width:500 %>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+

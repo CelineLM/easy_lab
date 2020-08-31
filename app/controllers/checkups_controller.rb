@@ -23,7 +23,7 @@ class CheckupsController < ApplicationController
       render :new
     end
   end
-  
+
   def show
     @user_analyses = @checkup.user_analyses
     @grouped_user_analyses = @user_analyses.group_by { |user_analysis| user_analysis.category }
@@ -31,7 +31,7 @@ class CheckupsController < ApplicationController
 
   def edit
   end
- 
+
   def update
   end
 

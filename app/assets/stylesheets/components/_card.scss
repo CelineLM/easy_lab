@@ -145,3 +145,44 @@
     padding-top: 40px;
     padding-bottom: 32px;
 }
+
+// analyses
+
+.analysis-card {
+  width: 95%;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  background-color: white;
+}
+
+.analysis-card-title {
+  background-color: $grey-blue;
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 10px 0;
+}
+
+.analysis-card-bottom {
+  background-color: $grey-blue;
+  border-radius: 0 0 10px 10px;
+}
+
+.analysis-description {
+  text-align: center;
+  padding: 40px 80px;
+  color: $dark-grey-blue;
+  font-size: 24px;
+}
+
+.analysis-picture {
+  display: flex;
+  justify-content: center;
+}
+
+.analysis-values {
+  color: $dark-grey-blue;
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+}

@@ -6,7 +6,7 @@ class AnalysesController < ApplicationController
   end
 
   def show
-
+    @analysis = Analysis.find(params[:id])
   end
 
 end

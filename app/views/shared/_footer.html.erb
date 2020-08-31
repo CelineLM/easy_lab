@@ -5,7 +5,13 @@
     <a href="#"><i class="fab fa-facebook"></i></a>
     <a href="#"><i class="fab fa-twitter"></i></a>
   </div>
+  <div class="footer-anchors">
+    <%= link_to "Accueil", root_path  %>
+    <%= link_to "Mon tableau de bord", user_path(current_user)  %>
+    <%= link_to "Historique de mes analyses", checkups_path  %>
+    <%= link_to "Evolution de mes analyses", user_analyses_path  %>
+  </div>
   <div class="footer-copyright">
-    EASY LAB ©2020 Tous droits réservés.</i>
+    EASY LAB ©2020 Tous droits réservés.
   </div>
 </div>

@@ -27,3 +27,19 @@
 .footer-copyright {
   color: $dark-grey-blue;
 }
+
+.footer-anchors {
+  display: flex;
+  align-items: center;
+  color: $dark-grey-blue;
+}
+.footer-anchors a {
+  color: $dark-grey-blue;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0px 10px;
+}
+.footer-anchors a:hover {
+  opacity: 1;
+  color: #2f699b;
+}

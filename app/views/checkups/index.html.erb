@@ -1,42 +1,43 @@
-<div class="wrapper">
-  <h1 class="text-center">Historique de vos analyses</h1>
+<div  class="bg">
+  <div class="wrapper">
+    <h1 class="text-center">Historique de vos analyses</h1>
 
-  <div class="download-wrapper">
-    <h3 class="text-center">Ajouter des analyses</h3>
-    <%= render "shared/choose_a_file" %>
-  </div>
+    <div class="download-wrapper">
+      <h3 class="text-center">Ajouter des analyses</h3>
+      <%= render "shared/choose_a_file" %>
+    </div>
 
-  <div class="flex-2-columns" >
-    <div class="cards">
-      <% @checkups.each do |checkup| %>
-        <div class="card-analyses">
-          <div class="card-analyses-top">
-            <i class="far fa-calendar"></i>
-            <h6>Réalisées le <%= checkup.realized_on.strftime("%d/%m/%G") %></h6>
-          </div>
+    <div class="flex-2-columns" >
+      <div class="cards">
+        <% @checkups.each do |checkup| %>
+          <div class="card-analyses">
+            <div class="card-analyses-top">
+              <i class="far fa-calendar"></i>
+              <h6>Réalisées le <%= checkup.realized_on.strftime("%d/%m/%G") %></h6>
+            </div>
 
-          <div class="card-analyses-middle">
-            <i class="fas fa-map-marker-alt"></i>
-            <p><%= checkup.laboratory_name %></p>
-          </div>
+            <div class="card-analyses-middle">
+              <i class="fas fa-map-marker-alt"></i>
+              <p><%= checkup.laboratory_name %></p>
+            </div>
 
-          <div class="card-analyses-bottom">
-            <%= link_to "Voir le détail", checkup_path(checkup) %>
-            <div class="card-icons">
-              <%= link_to edit_checkup_path(checkup), class: "left-icon" do %>
-                <i class="fas fa-pencil-alt"></i>
-              <% end %>
-              <%= link_to checkup_path(checkup), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer ces analyses ?" } do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
+            <div class="card-analyses-bottom">
+              <%= link_to "Voir le détail", checkup_path(checkup) %>
+              <div class="card-icons">
+                <%= link_to edit_checkup_path(checkup), class: "left-icon" do %>
+                  <i class="fas fa-pencil-alt"></i>
+                <% end %>
+                <%= link_to checkup_path(checkup), method: :delete, data: { confirm: "Êtes-vous sûr de supprimer ces analyses ?" } do %>
+                  <i class="far fa-trash-alt"></i>
+                <% end %>
+              </div>
             </div>
           </div>
-        </div>
-      <% end %>
-    </div>
-    <div>
-      <%= image_tag "historiques-des-analyses.png" %>
+        <% end %>
+      </div>
+      <div class="column-r" >
+        <%= image_tag "historiques-des-analyses.png", width: 400 %>
+      </div>
     </div>
   </div>
-
 </div>

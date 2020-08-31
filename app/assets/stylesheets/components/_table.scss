@@ -1,6 +1,15 @@
 table {
   margin: 16px auto;
+
   th, td {
-    padding: 8px;
+    padding: 8px 40px;
   }
+}
+
+.radius-10-r {
+  border-radius: 0 10px 0 0;
+}
+
+.radius-10-l {
+  border-radius: 10px 0 0 0;
 }

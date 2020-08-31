@@ -1,0 +1,30 @@
+.analyses-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.analyses-l, .analyses-r {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  h4 {
+    color: $grey-blue;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    &:hover {
+      color: $dark-grey-blue;
+    }
+  }
+  a {
+    text-decoration: none
+  }
+}
+.analyses-center {
+  margin: 50px 100px;
+}
+
+i {
+  position: relative;
+  bottom: 30px;
+}

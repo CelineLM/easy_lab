@@ -6,6 +6,7 @@ class AnalysesController < ApplicationController
   end
 
   def show
+
   end
-  
+
 end

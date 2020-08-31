@@ -7,6 +7,7 @@ class CheckupsController < ApplicationController
   end
 
   def new
+    @user_analysis = UserAnalysis.new
     @checkup = Checkup.new
     @results = params[:results]
   end
@@ -48,6 +49,6 @@ class CheckupsController < ApplicationController
   private
 
   def checkup_params
-    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id ,:analysis, :value, :_destroy])
+    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :value, :_destroy])
   end
 end

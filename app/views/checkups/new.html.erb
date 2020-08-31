@@ -1,13 +1,14 @@
 
+<div class="wrapper">
 <%= simple_form_for @checkup do |f| %>
-  <%= f.input :realized_on, label: "Date", :order => [:day, :month, :year] %>
+  <%= f.input :realized_on, as: :string, required: false, input_html: {class: "datepicker"} %>
   <%= f.input :laboratory_name, label: "Laboratoire" %>
 
   <% @results.keys.each do |analysis_id| %>
-    <%= Analysis.find(analysis_id).id %>
+    <%#= Analysis.find(analysis_id) %>
     <%= f.simple_fields_for :user_analyses, UserAnalysis.new do |ua| %>
       <%#= ua.input :name%>
-      <%= ua.association :analysis %>
+      <%= ua.association :analysis, selected: :analysis_id %>
       <%= ua.input :value, input_html: {value: @results[analysis_id].to_f} %>
     <% end %>
   <% end %>
@@ -15,3 +16,4 @@
     <%= f.submit%>
 
 <% end %>
+</div>

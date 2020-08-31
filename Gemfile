@@ -36,6 +36,7 @@ gem 'devise'
 gem 'daru-view', git: 'https://github.com/SciRuby/daru-view'
 gem 'pdf-reader'
 
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'

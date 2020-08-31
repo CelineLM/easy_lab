@@ -2,6 +2,10 @@ class PdfsController < ApplicationController
 
   def create
     #if params[:pdf]
+    if params[:pdf][:file] == []
+      flash[:error] = 'Fields cannot be blank.'
+      render "checkups/new"
+    else
       reader = PDF::Reader.new(params[:pdf][:file].open)
       split_table = reader.pages.first.text.split("\n")
       split_table.delete("""")
@@ -14,9 +18,9 @@ class PdfsController < ApplicationController
         end
       end
       redirect_to new_checkup_path(results: results_array)
-    #else
-     # @checkup = params
-      #render "checkups/new"
-    #end
+   # else
+     #@checkup = params
+     # render "checkups/new"
+    end
   end
 end

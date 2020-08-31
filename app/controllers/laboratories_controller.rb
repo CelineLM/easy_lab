@@ -3,11 +3,11 @@ class LaboratoriesController < ApplicationController
 
   def index
     @laboratories = Laboratory.all
-    # @markers = @laboratories.geocoded.map do |laboratory|
-    #   {
-    #     lat: laboratory.latitude,
-    #     lng: laboratory.longitude
-    #   }
-    # end
+    @markers = @laboratories.geocoded.map do |laboratory|
+      {
+        lat: laboratory.latitude,
+        lng: laboratory.longitude
+      }
+    end
   end
 end

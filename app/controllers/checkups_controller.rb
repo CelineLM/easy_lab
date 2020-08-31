@@ -33,6 +33,15 @@ class CheckupsController < ApplicationController
   end
  
   def update
+    @checkup.update(checkup_params)
+     @checkup.user = current_user
+    if @checkup.save
+      flash[:notice] = 'Analyse enregistrée.'
+      redirect_to checkup_path(@checkup)
+    else
+      flash[:alert] = 'Il manque un ou plusieurs champs.'
+      render :new
+    end
   end
 
   def destroy

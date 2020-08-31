@@ -12,7 +12,7 @@ const fitMapToMarker = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
 };
 
-const initMapbox = () => {
+const initMapbox = (coordinates) => {
   const mapElement = document.getElementById('map');
 
   if (mapElement) {
@@ -20,21 +20,18 @@ const initMapbox = () => {
       
       const map = new mapboxgl.Map({
           container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v10'
+          style: 'mapbox://styles/mapbox/streets-v10',
+          center: [ coordinates.lng, coordinates.lat ],
+          zoom: 14
       })
 
       const labMarkers = JSON.parse(mapElement.dataset.markers);
-      console.log(labMarkers);
-      const marker = {
-        lat: 44.8592175,
-        lng: -0.565732
-      };
 
       labMarkers.forEach((labMarker) => {
         addMarkerToMap(map, labMarker, '#2f699b');
       });
 
-      addMarkerToMap(map, marker, '#309C86');
+      addMarkerToMap(map, coordinates, '#309C86');
       fitMapToMarker(map, marker);
   }
 };

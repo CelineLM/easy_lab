@@ -179,8 +179,8 @@ puts 'cleaning laboratories'
 Laboratory.destroy_all
 
 puts 'Creating laboratories'
-Laboratory.create!(name: "Laboratoire SYNLAB Bordeaux Atlantique", address: "14 cours Balguerie Stuttenberg, 33300 Bordeaux", latitude: 48.862725, longitude: 2.287592)
-Laboratory.create!(name: "EXA LAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux", latitude: 44.86151123046875, longitude: -0.5677474737167358)
+Laboratory.create!(name: "Laboratoire SYNLAB Bordeaux Atlantique", address: "14 cours Balguerie Stuttenberg, 33300 Bordeaux")
+Laboratory.create!(name: "EXA LAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux")
 
 puts 'Laboratories created'
 

@@ -3,6 +3,7 @@ class AnalysesController < ApplicationController
 
   def index
     @analyses = Analysis.all
+    @categories = @analyses.group_by { |analysis| analysis.category }
   end
 
   def show

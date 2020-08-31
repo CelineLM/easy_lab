@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.analyses-l, .analyses-r {
+.analyses-l {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -12,6 +12,7 @@
     padding: 20px 40px;
     border-radius: 10px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    background-color: white;
     &:hover {
       color: $dark-grey-blue;
     }
@@ -24,6 +25,6 @@
     bottom: 30px;
   }
 }
-.analyses-center {
-  margin: 50px 100px;
+.analyses-r {
+
 }

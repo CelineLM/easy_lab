@@ -3,8 +3,8 @@ class Analysis < ApplicationRecord
   has_many :user_analysis
   has_one_attached :photo
 
+  
   validates :name, :description, uniqueness: true
-
 
   def to_s
     self.name

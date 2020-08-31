@@ -15,13 +15,13 @@ class CheckupsController < ApplicationController
   def create
     @checkup = Checkup.new(checkup_params)
     @checkup.user = current_user
-      if @checkup.save
-        flash[:notice] = 'Analyse enregistrée.'
-        redirect_to user_analyses_path
-      else
-        flash[:alert] = 'Il manque un ou plusieurs champs.'
-        render :new
-      end
+    if @checkup.save
+      flash[:notice] = 'Analyse enregistrée.'
+      redirect_to checkup_path(@checkup)
+    else
+      flash[:alert] = 'Il manque un ou plusieurs champs.'
+      render :new
+    end
   end
   
   def show
@@ -49,6 +49,6 @@ class CheckupsController < ApplicationController
   private
 
   def checkup_params
-    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :value, :_destroy])
+    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :analysis, :value, :_destroy])
   end
 end

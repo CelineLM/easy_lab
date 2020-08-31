@@ -50,3 +50,14 @@
   background-size: cover;
 }
 
+.bg-white {
+ margin: 30px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+}
+
+.bg-form {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.9),rgba(255, 255, 255,0.9)), asset-url('dna-bg.jpg');
+   background-size: 100%;
+}

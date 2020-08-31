@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :checkups
   resources :user_analyses, only: [:index]
   resources :analyses, only: [:index, :show]
-
+  resources :laboratories, only: :index
   resources :pdfs, only: [:create]
 end

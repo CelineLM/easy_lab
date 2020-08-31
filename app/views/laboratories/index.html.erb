@@ -1,3 +1,15 @@
 <div class="wrapper">
-  <h1>Trouvez un laboratoire près de chez vous</h1>
+  <h1 class="text-center">Trouvez un laboratoire près de chez vous</h1>
+
+  <div class="map-search-form">
+    <form id="search-form">
+      <input type="text" id="address" class="form-control" placeholder="Entrez votre adresse">
+      <input type="submit" value="Rechercher" class="button-blue-small">
+    </form>
+  </div>
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>

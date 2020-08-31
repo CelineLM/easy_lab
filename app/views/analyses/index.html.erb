@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <div class="analyses-flex">
+    <div class="analyses-l">
+      <% @analyses.first(5).each do |analysis| %>
+        <%= link_to analysis_path(analysis) do %>
+          <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= analysis.name %></h4>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="analyses-center" >
+      <%= image_tag "human-body.svg", width:500 %>
+    </div>
+    <div class="analyses-r">
+      <% @analyses.last(5).each do |analysis| %>
+        <%= link_to analysis_path(analysis) do %>
+          <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= analysis.name %></h4>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -26,15 +26,11 @@ require("channels")
 
 // External imports
 import "bootstrap";
-var Highcharts = require('highcharts');  
-// Load module after Highcharts is loaded
-require('highcharts/modules/exporting')(Highcharts);  
 import { makeCharts } from './charts';
 import "../plugins/flatpickr"
 import { initMapbox } from '../plugins/init_mapbox';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-
 
 document.addEventListener('turbolinks:load', () => {
   makeCharts();

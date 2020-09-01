@@ -30,7 +30,7 @@
           <div class="col-12">
             <br>
             <br>
-            <h3 class="text-center"> <i class="fas fa-list-ul"></i> <%= link_to " Historique de mes Analyses", checkups_path %></h3>
+            <h3 class="text-center"> <i class="fas fa-list-ul"></i> <%= link_to "Historique de mes Analyses", checkups_path %></h3>
           </div>
         </div>
         <div class="row">
@@ -44,9 +44,9 @@
                 </tr>
               </thead>
               <tbody>
-                <% current_user.checkups.first(5).each do |checkup| %>
+                <% current_user.checkups.first(5).reverse_each do |checkup| %>
                 <tr>
-                  <td class="text-center"> <%= checkup.realized_on %></td>
+                  <td class="text-center"> <%= checkup.realized_on.strftime("%d/%m/%G") %></td>
                   <td class="text-center"> <%= checkup.laboratory_name %></td>
                   <td class="text-center"> <%= link_to checkup_path(checkup) do %>
                       <h3><i class="fas fa-arrow-circle-right"></i></h3>

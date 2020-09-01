@@ -180,8 +180,8 @@ Laboratory.destroy_all
 
 puts 'Creating laboratories'
 Laboratory.create!(name: "Laboratoire SYNLAB Bordeaux Atlantique", address: "14 cours Balguerie Stuttenberg, 33300 Bordeaux")
-Laboratory.create!(name: "EXA LAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux")
-
+Laboratory.create!(name: "EXALAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux")
+Laboratory.create!(name: "EXALAB Bordeaux Victoire", address: "31 Place de la Victoire, 33000 Bordeaux")
 puts 'Laboratories created'
 
 puts 'Seeds OK!'

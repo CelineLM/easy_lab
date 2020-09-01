@@ -1,8 +1,10 @@
 import mapboxgl from 'mapbox-gl';
 
-const addMarkerToMap = (map, marker, color) => {
+const addMarkersToMap = (map, marker, color) => {
+  const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
   new mapboxgl.Marker({ color: `${color}`})
   .setLngLat([marker.lng, marker.lat])
+  .setPopup(popup)
   .addTo(map);
 };
 
@@ -24,15 +26,14 @@ const initMapbox = (coordinates) => {
           center: [1.8883335, 46.603354],
           zoom: 5
       })
- 
-      
-      const labMarkers = JSON.parse(mapElement.dataset.markers);
 
+      const labMarkers = JSON.parse(mapElement.dataset.markers);
+      
       labMarkers.forEach((labMarker) => {
-        addMarkerToMap(map, labMarker, '#2f699b');
+        addMarkersToMap(map, labMarker, '#2f699b');
       });
 
-      // addMarkerToMap(map, coordinates, '#309C86');
+      // addMarkersToMap(map, labMarkers[-1], '#309C86');
       fitMapToMarker(map, labMarkers);
   }
 };

@@ -8,7 +8,8 @@ class LaboratoriesController < ApplicationController
       @markers = @laboratories.geocoded.map do |laboratory|
         {
           lat: laboratory.latitude,
-          lng: laboratory.longitude
+          lng: laboratory.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { laboratory: laboratory })
         }
       end
       results = Geocoder.search(params[:address])

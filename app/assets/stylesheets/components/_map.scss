@@ -1,0 +1,18 @@
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  color: $dark-blue;
+  h3 {
+    font-size: 18px;
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+#map {
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}

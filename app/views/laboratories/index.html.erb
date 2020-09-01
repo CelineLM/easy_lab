@@ -3,13 +3,16 @@
 
   <div class="map-search-form">
     <%= simple_form_for laboratories_path, method: :get, html: { id: "search-form" } do |f|%>
-      <input type="text" id="address" name="address" class="form-control" placeholder="Entrez votre adresse">
-      <%= f.submit "Rechercher", class: "button-blue-small" %>
+      <div class="search-field-wrapper">
+        <input type="text" id="address" name="address" class="search-field" placeholder="Entrez votre adresse">
+        <%= f.submit "Rechercher", class: "button-blue-small" %>
+      </div>
     <% end %>
   </div>
 
   <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>

@@ -1,0 +1,19 @@
+.map-search-form {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.search-field-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-field {
+  height: 45px;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: 100%;
+  border: 1px solid rgb(175, 171, 171);
+  padding-left: 10px;
+  font-size: 16px;
+}

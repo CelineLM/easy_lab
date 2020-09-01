@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       if @contact.deliver
         # re-initialize Home object for cleared form
         @contact = Home.new
-        format.html { render 'index'}
+        format.html { render 'checkups'}
         format.js   { flash.now[:success] = @message = "Nous vous remercions pour votre message et revenons vers vous dès que possible" }
       else
         format.html { render 'index' }

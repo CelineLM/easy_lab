@@ -20,6 +20,7 @@ class CheckupsController < ApplicationController
       redirect_to checkup_path(@checkup)
     else
       flash[:alert] = 'Il manque un ou plusieurs champs.'
+      @results = eval(params[:checkup][:results])
       render :new
     end
   end
@@ -33,6 +34,15 @@ class CheckupsController < ApplicationController
   end
 
   def update
+    @checkup.update(checkup_params)
+    @checkup.user = current_user
+    if @checkup.save
+      flash[:notice] = 'Analyse enregistrée.'
+      redirect_to checkup_path(@checkup)
+    else
+      flash[:alert] = 'Il manque un ou plusieurs champs.'
+      render :new
+    end
   end
 
   def destroy
@@ -45,8 +55,6 @@ class CheckupsController < ApplicationController
   def set_checkup
     @checkup = Checkup.find(params[:id])
   end
-
-  private
 
   def checkup_params
     params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :analysis, :value, :_destroy])

@@ -27,14 +27,16 @@ const initMapbox = (coordinates) => {
           zoom: 5
       })
 
-      const labMarkers = JSON.parse(mapElement.dataset.markers);
-      
-      labMarkers.forEach((labMarker) => {
+      const allMarkers = JSON.parse(mapElement.dataset.markers);
+
+      allMarkers.slice(0, -1).forEach((labMarker) => {
         addMarkersToMap(map, labMarker, '#2f699b');
       });
 
-      // addMarkersToMap(map, labMarkers[-1], '#309C86');
-      fitMapToMarker(map, labMarkers);
+      const searchMarker = allMarkers.slice(-1)[0];
+      addMarkersToMap(map, searchMarker, '#309C86');
+
+      fitMapToMarker(map, allMarkers);
   }
 };
 

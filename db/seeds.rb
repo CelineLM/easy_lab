@@ -64,7 +64,7 @@ vitamines = Category.create!(name: "Vitamines")
 
 serologie = Category.create!(name: "Sérologie")
 
-hormonologie = Category.create!(name: "hormonologie")
+hormonologie = Category.create!(name: "Hormonologie")
 
 puts 'Finished creating categories'
 

@@ -4,23 +4,25 @@
       <div class="analyses-l">
         <% @categories.each do |category, analysis| %>
         <!-- Button trigger modal -->
-          <button type="button" data-toggle="modal" data-target="#exampleModalLong">
+          <button type="button" data-toggle="modal" data-target="#category<%= category.id %>">
             <h4 class="text-center"><i class="fas fa-info-circle"></i> <br> <%= category.name %></h4>
           </button>
           <!-- Modal -->
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+          <div class="modal fade" id="category<%= category.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLongTitle"><%= category.name %></h5>
                 </div>
                 <div class="modal-body">
                   <% category.analyses.each do |analysis| %>
-                    <%= analysis.name %>
+                    <ul class="fa-ul">
+                      <h5><li><span class="fa-li"><i class="fas fa-chevron-circle-right"></i></span><%= link_to analysis.name, analysis_path(analysis) %></li></h5>
+                    </ul>
                   <% end %>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" data-dismiss="modal"> X </button>
                 </div>
               </div>
             </div>
@@ -33,7 +35,3 @@
     </div>
   </div>
 </div>
-
-
-
-

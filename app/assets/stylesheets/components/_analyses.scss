@@ -1,6 +1,6 @@
 .analyses-flex {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .analyses-l {
@@ -8,23 +8,77 @@
   flex-direction: column;
   justify-content: space-around;
   h4 {
-    color: $grey-blue;
+    color: $dark-grey-blue;
     padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-    background-color: white;
     &:hover {
-      color: $dark-grey-blue;
+      color: $blue-green;
     }
   }
   a {
     text-decoration: none
   }
-  i {
-    position: relative;
-    bottom: 30px;
+  button {
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid $dark-grey-blue;
+    &:hover {
+      border: 2px solid $blue-green;
+    }
+    i {
+      position: relative;
+      bottom: 30px;
+    }
   }
 }
-.analyses-r {
 
+.analyses-r {
+  display: flex;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid $grey-blue;
+  color: $dark-grey-blue;
+  a {
+    text-decoration: none;
+  }
+  ul:hover {
+    color: $blue-green;
+  }
+  i {
+    margin-left: 70px;
+  }
+  ul {
+    list-style-type: none;
+  }
+}
+
+.modal-body {
+  padding: 20px;
+  a {
+    color: $dark-grey-blue;
+    padding-left: 40px;
+    &:hover {
+      color: $blue-green;
+    }
+  }
+}
+
+.modal-header {
+  background-color: $grey-blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-footer {
+  background-color: $grey-blue;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 10px 10px;
 }

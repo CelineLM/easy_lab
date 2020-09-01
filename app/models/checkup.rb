@@ -4,6 +4,5 @@ class Checkup < ApplicationRecord
   accepts_nested_attributes_for :user_analyses,
                                  reject_if: proc { |attributes| attributes[:analysis_id].blank? }, 
                                  allow_destroy: true
-  validates :laboratory_name, presence: true
-  validates :realized_on, presence: true
+  validates :laboratory_name, :realized_on, presence: true
 end

@@ -21,18 +21,19 @@ const initMapbox = (coordinates) => {
       const map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v10',
-          center: [ coordinates.lng, coordinates.lat ],
-          zoom: 14
+          center: [1.8883335, 46.603354],
+          zoom: 5
       })
-
+ 
+      
       const labMarkers = JSON.parse(mapElement.dataset.markers);
 
       labMarkers.forEach((labMarker) => {
         addMarkerToMap(map, labMarker, '#2f699b');
       });
 
-      addMarkerToMap(map, coordinates, '#309C86');
-      fitMapToMarker(map, marker);
+      // addMarkerToMap(map, coordinates, '#309C86');
+      fitMapToMarker(map, labMarkers);
   }
 };
 

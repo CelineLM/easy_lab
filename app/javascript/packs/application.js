@@ -32,15 +32,14 @@ require("channels")
 import "bootstrap";
 import { makeCharts } from './charts';
 import "../plugins/flatpickr"
-import { formElement } from '../plugins/get_coordinates';
+import {initMapbox} from '../plugins/init_mapbox';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
-
-
 document.addEventListener('turbolinks:load', () => {
   makeCharts();
+  initMapbox();
 });
 
-formElement();
+

@@ -1,6 +1,6 @@
 <div class="choose-file">
 <%= simple_form_for :pdf, url: pdfs_path, method: :post do |f|%>
-  <%= f.input :file, as: :file %>
+  <%= f.input :file, as: :file , label: "Fichier pdf"%>
   <%= f.submit "Télécharger fichier", class: "button-blue" %>
 <% end %>
 </div>

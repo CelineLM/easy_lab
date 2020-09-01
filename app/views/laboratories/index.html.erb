@@ -2,10 +2,10 @@
   <h1 class="text-center">Trouvez un laboratoire près de chez vous</h1>
 
   <div class="map-search-form">
-    <form id="search-form">
-      <input type="text" id="address" class="form-control" placeholder="Entrez votre adresse">
-      <input type="submit" value="Rechercher" class="button-blue-small">
-    </form>
+    <%= simple_form_for laboratories_path, method: :get, html: { id: "search-form" } do |f|%>
+      <input type="text" id="address" name="address" class="form-control" placeholder="Entrez votre adresse">
+      <%= f.submit "Rechercher", class: "button-blue-small" %>
+    <% end %>
   </div>
 
   <div id="map"

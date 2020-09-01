@@ -1,7 +1,7 @@
  <div class="bg-form">
   <div class="wrapper d-flex flex-column align-items-center mt-5">
       <div class= "col-md-6 col-sm-12 bg-white font-weight-bold " >
-          <h1> Vos analyses</h1>
+          <h1> Votre analyse</h1>
           <%= simple_form_for @checkup do |f| %>
             <%= f.input :realized_on, :label => "Réalisée le", as: :string, required: false, input_html: {class: "datepicker"}%>
             <%= f.input :laboratory_name, label: "Laboratoire" %>

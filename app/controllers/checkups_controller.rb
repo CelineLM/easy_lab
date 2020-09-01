@@ -31,6 +31,7 @@ class CheckupsController < ApplicationController
   end
 
   def edit
+      @user_analyses = @checkup.user_analyses
   end
 
   def update

@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
-  get 'contact/index'
   devise_for :users
   root to: 'pages#home'
   resources :users, only: :show

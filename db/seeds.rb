@@ -180,7 +180,7 @@ L'acide folique ou la vitamine B9 a un rôle essentiel dans la production du mat
 
 # serologie
 
-syphilis = Analysis.create!(name: "Syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", max_value: 0.99, category: serologie, unit: "UA")
+syphilis = Analysis.create!(name: "Sérologie de la syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", max_value: 0.99, category: serologie, unit: "UA")
 
 file_syphilis = URI.open('https://i2.wp.com/images-prod.healthline.com/hlcmsresource/images/Image-Galleries/Secondary-Syphilis/SYPH021-01-EarlyStages.jpg?resize=648%2C488&ssl=1')
 syphilis.photo.attach(io: file_syphilis, filename: 'syphilis.jpg', content_type: 'image/jpg')
@@ -198,9 +198,13 @@ hepatitec = Analysis.create!(name: "Hépatite C", description: "L’hépatite C 
 
 # hormonologie
 
-tsh = Analysis.create!(name: "TSH (Thyreostimuline)", description: "La TSH ou thyréostimuline est une hormone produite par la partie antérieure de l' hypophyse (une glande située à la base du crâne). Elle intervient dans la boucle d'une série d'hormones qui régulent le niveau de sécrétion des hormones thyroïdiennes ( T3 et  T4) par la glande  thyroïde (située à la face antérieure du cou), en fonction des besoins corporels. Le dosage de la TSH se fait en général dans le cadre d'une exploration biologique à la recherche d'altérations de la fonction thyroïdienne (  hypothyroïdie, hyperthyroïdie ou autres  dysthyroïdies comme les goitres ou les  cancers de la thyroïde), ou encore pour surveiller la réponse au traitement d'une de ces maladies. La production de cette hormone est soumise à une régulation qui fait intervenir différents facteurs dont une autre hormone, la TRH (Thyrotropin Releasing Factor) ainsi que les hormones thyroïdiennes elles-mêmes (T3 et T4). Ces hormones thyroïdiennes ont un rôle de chef d’orchestre de l’organisme : régulant de nombreuses fonctions de base (digestion, température, fatigue, fertilité…). Un niveau élevé de TSH va entraîner une production excessive d’hormones thyroïdiennes (hyperthyroïdie), un niveau bas de TSH va entraîner une production insuffisance d’hormones thyroïdiennes (hypothyroïdie).", min_value: 0.35, max_value: 4.94, category: hormonologie, unit: "mui/l")
+tsh = Analysis.create!(name: "TSH", description: "La TSH ou thyréostimuline est une hormone produite par la partie antérieure de l' hypophyse (une glande située à la base du crâne). Elle intervient dans la boucle d'une série d'hormones qui régulent le niveau de sécrétion des hormones thyroïdiennes ( T3 et  T4) par la glande  thyroïde (située à la face antérieure du cou), en fonction des besoins corporels. Le dosage de la TSH se fait en général dans le cadre d'une exploration biologique à la recherche d'altérations de la fonction thyroïdienne (  hypothyroïdie, hyperthyroïdie ou autres  dysthyroïdies comme les goitres ou les  cancers de la thyroïde), ou encore pour surveiller la réponse au traitement d'une de ces maladies. La production de cette hormone est soumise à une régulation qui fait intervenir différents facteurs dont une autre hormone, la TRH (Thyrotropin Releasing Factor) ainsi que les hormones thyroïdiennes elles-mêmes (T3 et T4). Ces hormones thyroïdiennes ont un rôle de chef d’orchestre de l’organisme : régulant de nombreuses fonctions de base (digestion, température, fatigue, fertilité…). Un niveau élevé de TSH va entraîner une production excessive d’hormones thyroïdiennes (hyperthyroïdie), un niveau bas de TSH va entraîner une production insuffisance d’hormones thyroïdiennes (hypothyroïdie).", min_value: 0.35, max_value: 4.94, category: hormonologie, unit: "mui/l")
 file_tsh = URI.open('https://res.cloudinary.com/drj1uqyhz/image/upload/v1599050545/xl1p90iwog3vaksimihx.jpg')
 tsh.photo.attach(io: file_tsh, filename: 'tsh.jpg', content_type: 'image/jpg')
+
+t3 = Analysis.create!(name: "T3 (Tri-iodothyronine)", description: "L’hormone tri-iodothyronine (T3) représente les 20 % de sécrétion hormonale restant de la thyroïde. Une partie de cette hormone est aussi produite au sein des muscles, du foie et du rein par dégradation de l’hormone T4.Elles jouent un rôle vital dans la régulation du métabolisme et influent sur le système cardiovasculaire, la croissance et le métabolisme osseux. Elles jouent également un rôle important dans le développement normal de la fonction gonadique et du système nerveux.La T3 circule dans le sang sous deux formes en équilibre: l'une libre et l'autre liée au sérum. La T3 libre (T3L ou FT3) en est la forme non liée et biologiquement active. Elle représente seulement 0.2 à 0.4 % de la T3 totale. La T3 restante est inactive et liée aux protéines sériques.", min_value: 0.6, max_value: 2.2, category: hormonologie, unit: "µmol/l")
+
+t4= Analysis.create!(name: "T4 (Thyroxine)", description: "Plus de 80% de la production des hormones thyroïdiennes se fait sous la forme de thyroxine, encore appelée T4. Cette hormone passe dans le sang où elle se lie en grande partie à des protéines.C’est une hormone inactive, mais elle peut se convertir en T3, qui elle est active, après déionisation dans les cellules cibles. On dit que la T4 est la pro-hormone de la T3.Pour apprécier le fonctionnement de la thyroïde, on ne mesure que le taux de T4 non lié à des protéines : T4 libre.", min_value: 12.0, max_value: 22.0, category: hormonologie, unit: "pmol/L")
 
 puts 'Finished creating analyses'
 
@@ -220,9 +224,9 @@ puts "Creating user_analyses..."
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_1, analysis: leucocytes, value: 4.3)
 UserAnalysis.create!(name: "Hématies", checkup: checkup_1, analysis: hematies, value: 4.3)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_1, analysis: hemoglobine, value: 13.2)
-UserAnalysis.create!(name: "V.G.M.", checkup: checkup_1, analysis: vgm, value: 13.2)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_1, analysis: vgm, value: 88.3)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_1, analysis: tcmh, value: 30)
-UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_1, analysis: ccmh, value: 31.6)
+UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_1, analysis: ccmh, value: 34.7)
 UserAnalysis.create!(name: "Plaquettes", checkup: checkup_1, analysis: plaquettes, value: 178.0)
 UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_1, analysis: glycemie, value: 0.96)
 UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: cholesterol, value: 1.86)
@@ -230,7 +234,7 @@ UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_1, analysis: c
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_2, analysis: leucocytes, value: 4.4)
 UserAnalysis.create!(name: "Hématies", checkup: checkup_2, analysis: hematies, value: 4.6)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_2, analysis: hemoglobine, value: 13.0)
-UserAnalysis.create!(name: "V.G.M.", checkup: checkup_2, analysis: vgm, value: 13.5)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_2, analysis: vgm, value: 95.3)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_2, analysis: tcmh, value: 31.6)
 UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_2, analysis: ccmh, value: 33)
 UserAnalysis.create!(name: "Plaquettes", checkup: checkup_2, analysis: plaquettes, value: 188.0)
@@ -240,7 +244,7 @@ UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_2, analysis: c
 UserAnalysis.create!(name: "Leucocytes", checkup: checkup_3, analysis: leucocytes, value: 4.3)
 UserAnalysis.create!(name: "Hématies", checkup: checkup_3, analysis: hematies, value: 4.4)
 UserAnalysis.create!(name: "Hémoglobine", checkup: checkup_3, analysis: hemoglobine, value: 13.0)
-UserAnalysis.create!(name: "V.G.M.", checkup: checkup_3, analysis: vgm, value: 14.0)
+UserAnalysis.create!(name: "V.G.M.", checkup: checkup_3, analysis: vgm, value: 96.4)
 UserAnalysis.create!(name: "T.C.M.H.", checkup: checkup_3, analysis: tcmh, value: 31.2)
 UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_3, analysis: ccmh, value: 33.6)
 UserAnalysis.create!(name: "Plaquettes", checkup: checkup_3, analysis: plaquettes, value: 180.0)

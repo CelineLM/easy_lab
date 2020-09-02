@@ -31,12 +31,13 @@ class CheckupsController < ApplicationController
   end
 
   def edit
-      @user_analyses = @checkup.user_analyses
+    @user_analyses = @checkup.user_analyses
   end
 
   def update
     @checkup.update(checkup_params)
     @checkup.user = current_user
+    checkup_params["user_analyses_attributes"].each_value{|ua| UserAnalysis.find(ua["id"].to_i).update(ua)}
     if @checkup.save
       flash[:notice] = 'Analyse enregistrée.'
       redirect_to checkup_path(@checkup)
@@ -58,6 +59,6 @@ class CheckupsController < ApplicationController
   end
 
   def checkup_params
-    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :analysis, :value, :_destroy])
+    params.require(:checkup).permit(:realized_on, :laboratory_name, user_analyses_attributes: [:id, :name, :analysis_id, :analysis, :value, :destroy])
   end
 end

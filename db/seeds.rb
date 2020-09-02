@@ -92,7 +92,7 @@ puts "Creating analyses..."
 
 hematies = Analysis.create!(name: "Hématies", description: "Les hématies ou globules rouges sont des cellules sans noyaux qui se présentent sous la forme de petits disques biconcaves. Ils contiennent une solution d'hémoglobine(Hb): c'est ce pigment respiratoire qui transporte l'oxygène des poumons vers les tissus et est responsable de la fonction de l'hématie. /n On évalue leur nombre, par exemple pour détecter une polyglobulie (taux d’hématies trop élevé) ou une anémie (taux d'hématies trop bas). /n On étudie aussi plusieurs autres caractéristiques des globules rouges : Le volume globulaire moyen (VGM) est un indicateur de la taille des globules rouges, L’hématocrite est le pourcentage du volume sanguin occupé par les hématies. Il diminue en cas d’anémie, et augmente par exemple lors d’un épisode de déshydratation et Le taux de réticulocytes correspond au nombre de jeunes globules rouges nouvellement produits par la moelle osseuse. Il donne donc des indications sur le fonctionnement de cette dernière.", min_value: 4.0, max_value: 5.2, category: hematologie, unit: "t/l")
 
-file_hematies = URI.open('https://res.cloudinary.com/drj1uqyhz/image/upload/v1599043816/p1cyeur5gqg19amiuipz.jpg')
+file_hematies = URI.open('https://res.cloudinary.com/drj1uqyhz/image/upload/v1599050104/cimnj761e4l6jvu4eoll.jpg')
 hematies.photo.attach(io: file_hematies, filename: 'hematies.jpg', content_type: 'image/jpg')
 
 hemoglobine = Analysis.create!(name: "Hémoglobine", description: "Composant des globules rouges, qui donne la couleur rouge au sang et qui, à l’aide du fer, permet de fixer successivement l’oxygène et le gaz carbonique.", min_value: 11.5, max_value: 15.0, category: hematologie, unit: "g/dl")
@@ -198,10 +198,8 @@ hepatitec = Analysis.create!(name: "Hépatite C", description: "L’hépatite C 
 
 # hormonologie
 
-
-
 tsh = Analysis.create!(name: "TSH (Thyreostimuline)", description: "La TSH ou thyréostimuline est une hormone produite par la partie antérieure de l' hypophyse (une glande située à la base du crâne). Elle intervient dans la boucle d'une série d'hormones qui régulent le niveau de sécrétion des hormones thyroïdiennes ( T3 et  T4) par la glande  thyroïde (située à la face antérieure du cou), en fonction des besoins corporels. Le dosage de la TSH se fait en général dans le cadre d'une exploration biologique à la recherche d'altérations de la fonction thyroïdienne (  hypothyroïdie, hyperthyroïdie ou autres  dysthyroïdies comme les goitres ou les  cancers de la thyroïde), ou encore pour surveiller la réponse au traitement d'une de ces maladies. La production de cette hormone est soumise à une régulation qui fait intervenir différents facteurs dont une autre hormone, la TRH (Thyrotropin Releasing Factor) ainsi que les hormones thyroïdiennes elles-mêmes (T3 et T4). Ces hormones thyroïdiennes ont un rôle de chef d’orchestre de l’organisme : régulant de nombreuses fonctions de base (digestion, température, fatigue, fertilité…). Un niveau élevé de TSH va entraîner une production excessive d’hormones thyroïdiennes (hyperthyroïdie), un niveau bas de TSH va entraîner une production insuffisance d’hormones thyroïdiennes (hypothyroïdie).", min_value: 0.35, max_value: 4.94, category: hormonologie, unit: "mui/l")
-file_tsh = URI.open('https://res.cloudinary.com/drj1uqyhz/image/upload/v1599041077/zydtm0gt8uhahvbhs51r.jpg')
+file_tsh = URI.open('https://res.cloudinary.com/drj1uqyhz/image/upload/v1599050545/xl1p90iwog3vaksimihx.jpg')
 tsh.photo.attach(io: file_tsh, filename: 'tsh.jpg', content_type: 'image/jpg')
 
 puts 'Finished creating analyses'
@@ -248,6 +246,7 @@ UserAnalysis.create!(name: "C.C.M.H.", checkup: checkup_3, analysis: ccmh, value
 UserAnalysis.create!(name: "Plaquettes", checkup: checkup_3, analysis: plaquettes, value: 180.0)
 UserAnalysis.create!(name: "Glycémie à jeun", checkup: checkup_3, analysis: glycemie, value: 1.20)
 UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: cholesterol, value: 2.30)
+UserAnalysis.create!(name: "TSH (Thyreostimuline)", checkup: checkup_3, analysis: tsh, value: 2.30)
 
 
 puts 'Finished creating user_analyses'

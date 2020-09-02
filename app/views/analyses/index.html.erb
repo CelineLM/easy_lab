@@ -1,7 +1,10 @@
 <div class="bg" >
   <div class="wrapper">
     <div class="analyses-flex">
-      <div class="analyses-l">
+      <div class="analyses-r" >
+        <%= image_tag "man-body.svg", height:900 %>
+      </div>
+      <div class="analyses-c">
         <% @categories.each do |category, analysis| %>
         <!-- Button trigger modal -->
           <button type="button" data-toggle="modal" data-target="#category<%= category.id %>">
@@ -29,8 +32,8 @@
           </div>
         <% end %>
       </div>
-      <div class="analyses-r" >
-        <%= image_tag "female-body.svg", width:500 %>
+      <div class="analyses-l" >
+        <%= image_tag "female-body.svg", height:1000 %>
       </div>
     </div>
   </div>

@@ -5,7 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
 require "open-uri"
+
+# puts 'cleaning laboratories'
+# Laboratory.destroy_all
+
+# puts 'Creating laboratories'
+
+# filepath = './json/laboratoires_paris.json'
+# labs_paris_file = File.read(filepath)
+# labs_paris = JSON.parse(labs_paris_file)
+# labs_paris.each { |lab| 
+#   Laboratory.create!(
+#     name: lab["fields"]["raison_sociale"],
+#     address: "#{lab["fields"]["adresse_complete"]}, #{lab["fields"]["cp_ville"]}"
+#   )
+# }
+
+# puts 'Laboratories created'
 
 puts "Cleaning user"
 User.destroy_all
@@ -72,18 +90,18 @@ puts "Creating analyses..."
 
 # hematologie
 
-hematies = Analysis.new(name: "Hématies", description: "Les globules rouges servent à transporter l’oxygène des poumons vers les tissus. On évalue leur nombre, par exemple pour détecter une polyglobulie (taux d’hématies trop élevé) ou une anémie (taux d'hématies trop bas). On étudie aussi plusieurs autres caractéristiques des globules rouges : Le volume globulaire moyen (VGM) est un indicateur de la taille des globules rouges, L’hématocrite est le pourcentage du volume sanguin occupé par les hématies. Il diminue en cas d’anémie, et augmente par exemple lors d’un épisode de déshydratation et Le taux de réticulocytes correspond au nombre de jeunes globules rouges nouvellement produits par la moelle osseuse. Il donne donc des indications sur le fonctionnement de cette dernière. On étudie aussi l'hémoglobine que les hématies contiennent, sous plusieurs aspects : Le taux d’hémoglobine dans le sang est normalement de 13 grammes par décilitre (g/dl) chez l’homme, et 12 chez la femme. À partir du deuxième trimestre de grossesse, il tombe à 10,5 g/dl, La concentration corpusculaire (ou globulaire) moyenne en hémoglobine (CCMH ou CGMH) est la quantité d’hémoglobine contenue dans 100 millilitres de globules rouges et La teneur corpusculaire (ou globulaire) moyenne en hémoglobine (TCMH ou TGMH) est la quantité moyenne d’hémoglobine contenue dans un globule rouge.", min_value: 4.0, max_value: 5.2, category: hematologie, unit: "t/l")
-hematies.save!
+hematies = Analysis.create!(name: "Hématies", description: "Les globules rouges servent à transporter l’oxygène des poumons vers les tissus. On évalue leur nombre, par exemple pour détecter une polyglobulie (taux d’hématies trop élevé) ou une anémie (taux d'hématies trop bas). On étudie aussi plusieurs autres caractéristiques des globules rouges : Le volume globulaire moyen (VGM) est un indicateur de la taille des globules rouges, L’hématocrite est le pourcentage du volume sanguin occupé par les hématies. Il diminue en cas d’anémie, et augmente par exemple lors d’un épisode de déshydratation et Le taux de réticulocytes correspond au nombre de jeunes globules rouges nouvellement produits par la moelle osseuse. Il donne donc des indications sur le fonctionnement de cette dernière. On étudie aussi l'hémoglobine que les hématies contiennent, sous plusieurs aspects : Le taux d’hémoglobine dans le sang est normalement de 13 grammes par décilitre (g/dl) chez l’homme, et 12 chez la femme. À partir du deuxième trimestre de grossesse, il tombe à 10,5 g/dl, La concentration corpusculaire (ou globulaire) moyenne en hémoglobine (CCMH ou CGMH) est la quantité d’hémoglobine contenue dans 100 millilitres de globules rouges et La teneur corpusculaire (ou globulaire) moyenne en hémoglobine (TCMH ou TGMH) est la quantité moyenne d’hémoglobine contenue dans un globule rouge.", min_value: 4.0, max_value: 5.2, category: hematologie, unit: "t/l")
+
 file_hematies = URI.open('https://idata.over-blog.com/5/13/60/16/hematie-apparence.png')
 hematies.photo.attach(io: file_hematies, filename: 'hematies.png', content_type: 'image/png')
 
-hemoglobine = Analysis.new(name: "Hémoglobine", description: "Composant des globules rouges, qui donne la couleur rouge au sang et qui, à l’aide du fer, permet de fixer successivement l’oxygène et le gaz carbonique.", min_value: 11.5, max_value: 15.0, category: hematologie, unit: "g/dl")
-hemoglobine.save!
+hemoglobine = Analysis.create!(name: "Hémoglobine", description: "Composant des globules rouges, qui donne la couleur rouge au sang et qui, à l’aide du fer, permet de fixer successivement l’oxygène et le gaz carbonique.", min_value: 11.5, max_value: 15.0, category: hematologie, unit: "g/dl")
+
 file_hemoglobine = URI.open('https://optimaltkosthold.files.wordpress.com/2015/09/shutterstock_166034111.jpg')
 hemoglobine.photo.attach(io: file_hemoglobine, filename: 'hemoglobine.jpg', content_type: 'image/jpg')
 
-hematocrite = Analysis.new(name: "Hématocrite", description: "L'hématrocrite correspond au rapport du volume des globules rouges par rapport au volume sanguin total. Le sang est composé de plasma (eau et sel minéraux) dans lequel circulent les globules blancs, composant essentiel du système immunitaire, les globules rouges, permettant le transport de l'oxygène dans l'ensemble du corps et les plaquettes, chargées de la coagulation sanguine. Ainsi, plus le nombre de globules par litre de sang est élevé, plus l'hématocrite augmente. L'hématocrite est dosé de manière simple et accessible dans la numération formule sanguine (NFS), par le biais d'une prise de sang. L'hématocrite est compris entre 40 et 55 % chez l'homme. Chez la femme, il varie entre 35 et 50 %.", min_value: 34.0, max_value: 45.0, category: hematologie, unit: "%")
-hematocrite.save!
+hematocrite = Analysis.create!(name: "Hématocrite", description: "L'hématrocrite correspond au rapport du volume des globules rouges par rapport au volume sanguin total. Le sang est composé de plasma (eau et sel minéraux) dans lequel circulent les globules blancs, composant essentiel du système immunitaire, les globules rouges, permettant le transport de l'oxygène dans l'ensemble du corps et les plaquettes, chargées de la coagulation sanguine. Ainsi, plus le nombre de globules par litre de sang est élevé, plus l'hématocrite augmente. L'hématocrite est dosé de manière simple et accessible dans la numération formule sanguine (NFS), par le biais d'une prise de sang. L'hématocrite est compris entre 40 et 55 % chez l'homme. Chez la femme, il varie entre 35 et 50 %.", min_value: 34.0, max_value: 45.0, category: hematologie, unit: "%")
+
 file_hematocrite = URI.open('http://christophe.laborie1.free.fr/le%20dopage%20sanguin/sources/hematocrite/sang2.jpg')
 hematocrite.photo.attach(io: file_hematocrite, filename: 'hematocrite.jpg', content_type: 'image/jpg')
 
@@ -230,15 +248,6 @@ UserAnalysis.create!(name: "Cholestérol total", checkup: checkup_3, analysis: c
 
 
 puts 'Finished creating user_analyses'
-
-puts 'cleaning laboratories'
-Laboratory.destroy_all
-
-puts 'Creating laboratories'
-Laboratory.create!(name: "Laboratoire SYNLAB Bordeaux Atlantique", address: "14 cours Balguerie Stuttenberg, 33300 Bordeaux")
-Laboratory.create!(name: "EXALAB Bordeaux Chartrons", address: "190 Cours Saint-Louis, 33300 Bordeaux")
-Laboratory.create!(name: "EXALAB Bordeaux Victoire", address: "31 Place de la Victoire, 33000 Bordeaux")
-puts 'Laboratories created'
 
 puts 'Seeds OK!'
 

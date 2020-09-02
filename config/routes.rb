@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   resources :analyses, only: [:index, :show]
   resources :laboratories, only: :index
   resources :pdfs, only: [:create]
-  resources :home, only: [:index, :new, :create]
+   resources :messages, only: [:new, :create]
 
 end

@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-.analyses-l {
+.analyses-c {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -24,6 +24,9 @@
     &:hover {
       border: 2px solid $blue-green;
     }
+    &:focus {
+      outline: none !important;
+    }
     i {
       position: relative;
       bottom: 42px;
@@ -31,8 +34,9 @@
   }
 }
 
-.analyses-r {
+.analyses-r, .analyses-l {
   display: flex;
+  align-items: center;
 }
 
 .modal-content {

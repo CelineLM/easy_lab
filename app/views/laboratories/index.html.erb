@@ -3,9 +3,11 @@
 
   <div class="map-search-form">
     <%= simple_form_for laboratories_path, method: :get, html: { id: "search-form" } do |f|%>
-      <div class="search-field-wrapper">
-        <input type="text" id="address" name="address" class="search-field" placeholder="Entrez votre adresse">
-        <%= f.submit "Rechercher", class: "button-blue-small" %>
+      <div class="search-form-control form-group">
+        <input type="text" id="address" name="address" class="form-control string required" placeholder="Entrez votre adresse">
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>
+        </button>
       </div>
     <% end %>
   </div>

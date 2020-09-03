@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :pdfs, only: [:create]
    resources :messages, only: [:new, :create]
 
+   get "in_analyses/search", to: "analyses#search"
+
 end

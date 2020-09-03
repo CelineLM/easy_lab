@@ -8,22 +8,22 @@
 require 'json'
 require "open-uri"
 
-puts 'cleaning laboratories'
-Laboratory.destroy_all
+# puts 'cleaning laboratories'
+# Laboratory.destroy_all
 
-puts 'Creating laboratories'
+# puts 'Creating laboratories'
 
-filepath = './json/laboratoires_paris.json'
-labs_paris_file = File.read(filepath)
-labs_paris = JSON.parse(labs_paris_file)
-labs_paris.each { |lab| 
-  Laboratory.create!(
-    name: lab["fields"]["raison_sociale"],
-    address: "#{lab["fields"]["adresse_complete"]}, #{lab["fields"]["cp_ville"]}"
-  )
-}
+# filepath = './json/laboratoires_paris.json'
+# labs_paris_file = File.read(filepath)
+# labs_paris = JSON.parse(labs_paris_file)
+# labs_paris.each { |lab| 
+#   Laboratory.create!(
+#     name: lab["fields"]["raison_sociale"],
+#     address: "#{lab["fields"]["adresse_complete"]}, #{lab["fields"]["cp_ville"]}"
+#   )
+# }
 
-puts 'Laboratories created'
+# puts 'Laboratories created'
 
 puts "Cleaning user"
 User.destroy_all
@@ -180,7 +180,7 @@ L'acide folique ou la vitamine B9 a un rôle essentiel dans la production du mat
 
 # serologie
 
-syphilis = Analysis.create!(name: "Sérologie de la syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", max_value: 0.99, category: serologie, unit: "UA")
+syphilis = Analysis.create!(name: "Sérologie de la syphilis", description: "La syphilis est une infection sexuellement transmissible due à une bactérie : le tréponème pâle. En l’absence de traitement précoce, cette maladie devient chronique et le risque de transmission augmente. Très contagieuse, elle touche surtout les hommes ayant des rapports sexuels avec les hommes. La syphilis est une infection sexuellement transmissible (IST) très contagieuse. Elle est due à une bactérie de type spirochète appelée treponema pallidum, ou tréponème pâle. En l’absence de traitement précoce, la syphilis évolue par phases, peut progresser vers une maladie chronique, expose le malade à des complications et est transmise à d’autres partenaires sexuels. À tous ses stades d’évolution, même tardifs, la syphilis est traitée par antibiotiques, permettant la guérison du patient.", min_value: 0.0, max_value: 0.99, category: serologie, unit: "UA")
 
 file_syphilis = URI.open('https://i2.wp.com/images-prod.healthline.com/hlcmsresource/images/Image-Galleries/Secondary-Syphilis/SYPH021-01-EarlyStages.jpg?resize=648%2C488&ssl=1')
 syphilis.photo.attach(io: file_syphilis, filename: 'syphilis.jpg', content_type: 'image/jpg')

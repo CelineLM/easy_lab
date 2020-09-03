@@ -1,6 +1,6 @@
 .analyses-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .analyses-c {
@@ -37,6 +37,7 @@
 .analyses-r, .analyses-l {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .modal-content {

@@ -10,4 +10,13 @@ class AnalysesController < ApplicationController
     @analysis = Analysis.find(params[:id])
   end
 
+  def search
+    if params[:search][:query].present?
+      @analysis = Analysis.where("name ILIKE ?", "%#{params[:search][:query]}%").first
+      redirect_to analysis_path(@analysis)
+    else
+      redirect_to analyses_path
+    end
+  end
+
 end

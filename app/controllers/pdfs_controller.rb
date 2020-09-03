@@ -5,7 +5,7 @@ class PdfsController < ApplicationController
       @checkup = Checkup.new
       @user_analyses = current_user.user_analyses
       @analyses_grouped_by_name = @user_analyses.group_by{ |user_analysis| user_analysis.name }.select { |name, instances| instances.size > 1 }
-      flash[:alert] = 'Fields cannot be blank.'
+      flash[:alert] = "Vous n'avez pas sélectionné de fichier"
       render "users/show"
     else
       reader = PDF::Reader.new(params[:pdf][:file].open)

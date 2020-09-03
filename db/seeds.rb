@@ -251,14 +251,4 @@ puts 'Finished creating user_analyses'
 
 puts 'Seeds OK!'
 
-t3 = Analysis.create!(name: "T3 (Tri-iodothyronine )", description: "L’hormone tri-iodothyronine (T3) représente les 20 % de sécrétion hormonale restant de la thyroïde. Une partie de cette hormone est aussi produite au sein des muscles, du foie et du rein par dégradation de l’hormone T4.Elles jouent un rôle vital dans la régulation du métabolisme et influent sur le système cardiovasculaire, la croissance et le métabolisme osseux. Elles jouent également un rôle important dans le développement normal de la fonction gonadique et du système nerveux.La T3 circule dans le sang sous deux formes en équilibre: l'une libre et l'autre liée au sérum. La T3 libre (T3L ou FT3) en est la forme non liée et biologiquement active. Elle représente seulement 0.2 à 0.4 % de la T3 totale. La T3 restante est inactive et liée aux protéines sériques.", min_value: 0.6, max_value: 2.2, category: hormonologie, unit: "umol/l")
-
-
- = Analysis.create!(name: "T4 (Thyroxine)", description: "Plus de 80% de la production des hormones thyroïdiennes se fait sous la forme de thyroxine, encore appelée T4. Cette hormone passe dans le sang où elle se lie en grande partie à des protéines.C’est une hormone inactive, mais elle peut se convertir en T3, qui elle est active, après déionisation dans les cellules cibles. On dit que la T4 est la pro-hormone de la T3.Pour apprécier le fonctionnement de la thyroïde, on ne mesure que le taux de T4 non lié à des protéines : T4 libre.", min_value: 12.0, max_value: 22.0, category: hormonologie, unit: "pmol/L")
-
-
-PTH = Analysis.create!(name: "PTH (Parathormone )", description: "L’hormone parathyroïdienne (PTH) est une hormone sécrétée par les glandes parathyroïdes. Elle joue un rôle majeur dans la régulation de la répartition du calcium l'organisme. Son rôle principal est de stimuler la libération de calcium par les os et la réabsorption du calcium au niveau des reins pour augmenter le taux de calcium sanguin. Ainsi, l’hormone parathyroïdienne a un effet « hyper-calcémiant » et « hypo-phosphorémiant » (elle fait baisser parallèlement le taux de phosphates).   Dans le sang, on trouve l’hormone intacte (PTH 1-84) mais aussi des fragments qui compliquent le dosage.", min_value: , max_value: 2.2, category: hormonologie, unit: "umol/l")
-t3.save!
-
-
 

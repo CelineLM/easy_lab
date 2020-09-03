@@ -16,14 +16,14 @@ require "open-uri"
 # filepath = './json/laboratoires_paris.json'
 # labs_paris_file = File.read(filepath)
 # labs_paris = JSON.parse(labs_paris_file)
-# labs_paris.each { |lab| 
+# labs_paris.each { |lab|
 #   Laboratory.create!(
 #     name: lab["fields"]["raison_sociale"],
 #     address: "#{lab["fields"]["adresse_complete"]}, #{lab["fields"]["cp_ville"]}"
 #   )
 # }
 
-# puts 'Laboratories created'
+puts 'Laboratories created'
 
 puts "Cleaning user"
 User.destroy_all

@@ -1,5 +1,5 @@
-# meta_product_name: "Easy Lab"
-# meta_title: "Easy Lab - Comprenez faciement vos analyses de laboratoires médicales"
-# meta_description: "Comprenez vos analyses et suivez votre état de santé grâce à des tableaux de bords"
-# meta_image: "cover.png" # should exist in `app/assets/images/`
-# twitter_account: "@product_twitter_account"   # required for Twitter Cards
+meta_product_name: "Easy Lab"
+meta_title: "Easy Lab - Comprenez facilement vos analyses de laboratoires médicals"
+meta_description: "Comprenez vos analyses et suivez votre état de santé"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

@@ -20,3 +20,6 @@ class AnalysesController < ApplicationController
   end
 
 end
+
+
+

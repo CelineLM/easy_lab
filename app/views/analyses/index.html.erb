@@ -1,14 +1,15 @@
 
   <div class="wrapper">
-
-    <%= simple_form_for :search, url: in_analyses_search_path, method: :get do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-          <i class="fas fa-search"></i> Rechercher
-        </button>
-      </div>
-    <% end %>
+    <div class="search-analyses" >
+      <%= simple_form_for :search, url: in_analyses_search_path, method: :get do |f| %>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="search[query]" id="search_query" placeholder="Recherchez une analyse" />
+          <button name="button" type="submit" class="btn btn-flat">
+            <i class="fas fa-search"></i> Rechercher
+          </button>
+        </div>
+      <% end %>
+    </div>
 
     <div class="analyses-flex">
       <div class="analyses-r" >

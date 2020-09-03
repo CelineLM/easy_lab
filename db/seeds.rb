@@ -258,4 +258,3 @@ puts 'Finished creating user_analyses'
 puts 'Seeds OK!'
 
 
-

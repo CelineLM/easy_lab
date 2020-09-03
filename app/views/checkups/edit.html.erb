@@ -6,12 +6,14 @@
           <%= simple_form_for @checkup do |f| %>
             <%= f.input :realized_on, :label => "Réalisée le", as: :string, required: false, input_html: {class: "datepicker"}%>
             <%= f.input :laboratory_name, label: "Laboratoire" %>
-            <div class="form-new">
-            <%= f.simple_fields_for :user_analyses do |ua| %>
-                <%= ua.input :name, :label => "Analyse" %>
-                <%= ua.input :value,  :label => "Valeur" %>
-                </div>
-            <%end %>
+           
+              <%= f.simple_fields_for :user_analyses do |ua| %>
+               <div class="form-new">
+                  <%= ua.input :name, :label => "Analyse" %>
+                  <%= ua.input :value,  :label => "Valeur" %>
+                   </div>
+              <%end %>
+           
           <div class="button-wrapper">
           <%= f.submit "Enregistrer analyses", class: "button-blue"%>
         </div>

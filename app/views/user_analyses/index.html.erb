@@ -2,15 +2,15 @@
   <h1 class='text-center'>Évolution de vos analyses</h1>
 
   <div class="all-graphs-wrapper">
-    <% @analyses_grouped_by_name.each do |name, user_analyses| %>
+    <% @analyses_grouped_by_name.each_with_index do |user_analyses, index| %>
       <div class="graph-container">
-        <% min_value = user_analyses.map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
-        <% max_value = user_analyses.map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
-        <% values = user_analyses.map(&:value).join(', ') %>
-        <% x_axis_dates = user_analyses.map { |user_analysis| user_analysis.checkup.realized_on.strftime("%d/%m/%G") }.join(', ') %>
-        <% y_axis_title = user_analyses.first.analysis.unit %>
-        <h2 class="text-center"><%=name %></h2>
-        <div class="container-analyses" id="graph-<%= name.parameterize %>" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
+        <% min_value = user_analyses[1].map { |user_analysis| user_analysis.analysis.min_value }.join(', ') %>
+        <% max_value = user_analyses[1].map { |user_analysis| user_analysis.analysis.max_value }.join(', ') %>
+        <% values = user_analyses[1].map(&:value).join(', ') %>
+        <% x_axis_dates = @checkups[index].map { |checkup| checkup.realized_on.strftime("%d/%m/%G")}.join(', ') %>
+        <% y_axis_title = user_analyses[1].first.analysis.unit %>
+        <h2 class="text-center"><%=user_analyses[0] %></h2>
+        <div class="container-analyses" id="graph-<%= user_analyses[0].parameterize %>" data-min-value='<%= min_value %>' data-max-value='<%= max_value %>' data-values='<%= values %>' data-dates='<%= x_axis_dates %>' data-unit='<%= y_axis_title %>'></div>
       </div>
     <% end %>
   </div>

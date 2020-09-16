@@ -3,7 +3,9 @@ class LaboratoriesController < ApplicationController
 
   def index
     @laboratories = Laboratory.all
-    if params[:address]
+    if params[:address] == ""
+      redirect_to laboratories_path
+    elsif params[:address]
       @laboratories = Laboratory.near(params[:address], 2)
       @markers = @laboratories.geocoded.map do |laboratory|
         {
@@ -13,7 +15,11 @@ class LaboratoriesController < ApplicationController
         }
       end
       results = Geocoder.search(params[:address])
-      @markers << { lat: results.first.coordinates[0], lng: results.first.coordinates[1] }
+      if results.empty?
+        flash.now[:notice] = 'adresse invalide'
+      else
+        @markers << { lat: results.first.coordinates[0], lng: results.first.coordinates[1] }
+      end
     end
   end
 end

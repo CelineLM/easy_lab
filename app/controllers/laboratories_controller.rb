@@ -16,7 +16,7 @@ class LaboratoriesController < ApplicationController
       end
       results = Geocoder.search(params[:address])
       if results.empty?
-        flash.now[:notice] = 'adresse invalide'
+        flash.now[:alert] = 'Adresse invalide'
       else
         @markers << { lat: results.first.coordinates[0], lng: results.first.coordinates[1] }
       end
